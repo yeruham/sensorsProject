@@ -15,36 +15,33 @@ After each attempt, you will receive feedback indicating whether the sensor matc
 🎯 **Objective:**  
 Fully expose the agent by attaching all the required sensors.
 
-# Project Structure
+---
+
+## Project Structure
 
 ## 📁 sensors
 
 ### `sensor.cs`
-Class: `Sensor`
-
+Class: `Sensor`  
 **Fields:**
 - `string name`
-- `string type`
-
+- `string type`  
 **Methods:**
 - `void Activate()`
 
 ---
 
-### `createSensor.cs`
-Static Class: `CreateSensor`
-
+### `createSensor.cs`  
+Static Class: `CreateSensor`  
 **Methods:**
 - `Sensor CreateSensor()`
 
 ---
 
-### `sensorsList.cs`
-Class: `SensorsList`
-
+### `sensorsList.cs`  
+Class: `SensorsList`  
 **Fields:**
-- `List<Sensor> sensors`
-
+- `List<Sensor> sensors`  
 **Methods:**
 - `void AddSensor(Sensor sensor)`
 - `void RemoveSensor(Sensor sensor)`
@@ -54,29 +51,25 @@ Class: `SensorsList`
 
 ## 📁 agents
 
-### `agent.cs`
-Class: `Agent`
-
+### `agent.cs`  
+Class: `Agent`  
 **Fields:**
 - `string name`
 - `int rank`
 
 ---
 
-### `createAgent.cs`
-Static Class: `CreateAgent`
-
+### `createAgent.cs`  
+Static Class: `CreateAgent`  
 **Methods:**
 - `Agent CreateAgent()`
 
 ---
 
-### `agentList.cs`
-Class: `AgentList`
-
+### `agentList.cs`  
+Class: `AgentList`  
 **Fields:**
-- `List<Agent> agents`
-
+- `List<Agent> agents`  
 **Methods:**
 - `void AddAgent(Agent agent)`
 - `void RemoveAgent(Agent agent)`
@@ -86,35 +79,38 @@ Class: `AgentList`
 
 ## 📁 investigations
 
-### `investigation.cs`
-Class: `Investigation`
-
-**Fields:**
-_(לא צוינו)_
-
-**Methods:**
+### `investigation.cs`  
+Class: `Investigation`  
+**Fields:**  
+_(לא צוינו)_  
+**Methods:**  
 _(לא צוינו)_
 
 ---
 
 ## 📁 game
 
-### `gameManager.cs`
-Class: `GameManager`
-
-**Fields:**
-_(לא צוינו)_
-
-**Methods:**
+### `gameManager.cs`  
+Class: `GameManager`  
+**Fields:**  
+_(לא צוינו)_  
+**Methods:**  
 _(לא צוינו)_
 
 ---
 
-### `menuManager.cs`
-Class: `MenuManager`
-
-**Fields:**
+### `menuManager.cs`  
+Class: `MenuManager`  
+**Fields:**  
+_(לא צוינו)_  
+**Methods:**  
 _(לא צוינו)_
 
-**Methods:**
+
+
+
+
+
+_(לא צוינו)_
+
 _(לא צוינו)_
