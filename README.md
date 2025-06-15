@@ -21,18 +21,18 @@ Fully expose the agent by attaching all the required sensors.
 
 📦 Project Root
 ├── 📁 sensors
-│ ├── sensor.cs
-│ ├── createSensor.cs
-│ └── sensorsList.cs
+│   ├── sensor.cs
+│   ├── createSensor.cs
+│   └── sensorsList.cs
 ├── 📁 agents
-│ ├── agent.cs
-│ ├── createAgent.cs
-│ └── agentList.cs
+│   ├── agent.cs
+│   ├── createAgent.cs
+│   └── agentList.cs
 ├── 📁 investigations
-│ └── investigation.cs
+│   └── investigation.cs
 └── 📁 game
-├── gameManager.cs
-└── menuManager.cs
+    ├── gameManager.cs
+    └── menuManager.cs
 
 ## 📁 sensors
 
@@ -97,9 +97,9 @@ Methods:
 ### `investigation.cs`  
 **Class: `Investigation`**  
 Fields:
-_(לא צוינו)_  
+ 
 Methods:  
-_(לא צוינו)_
+
 
 ---
 
@@ -108,24 +108,21 @@ _(לא צוינו)_
 ### `gameManager.cs`  
 **Class: `GameManager`**  
 Fields:
-_(לא צוינו)_  
+ 
 Methods:
-_(לא צוינו)_
+
 
 ---
 
 ### `menuManager.cs`  
 **Class: `MenuManager`**  
 Fields:
-_(לא צוינו)_  
+  
 Methods:  
-_(לא צוינו)_
 
 
 
 
 
 
-_(לא צוינו)_
 
-_(לא צוינו)_
