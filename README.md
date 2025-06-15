@@ -84,7 +84,7 @@ Methods:
 ---
 
 ### `agentList.cs`  
-**Class: `AgentList`** 
+**Class: `AgentList`**  
 Fields:
 - `List<Agent> agents`  
 Methods:
@@ -99,9 +99,8 @@ Methods:
 ### `investigation.cs`  
 **Class: `Investigation`**  
 Fields:
- 
-Methods:  
 
+Methods:
 
 ---
 
@@ -110,17 +109,17 @@ Methods:
 ### `gameManager.cs`  
 **Class: `GameManager`**  
 Fields:
- 
-Methods:
 
+Methods:
 
 ---
 
 ### `menuManager.cs`  
 **Class: `MenuManager`**  
 Fields:
-  
-Methods:  
+
+Methods:
+ 
 
 
 
