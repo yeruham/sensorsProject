@@ -33,8 +33,8 @@ Fully expose the agent by attaching all the required sensors.
 │   └── investigation.cs
 └── 📁 game
     ├── gameManager.cs
-    └── menuManager.cs```
-
+    └── menuManager.cs
+```
 
 ## 📁 sensors
 
