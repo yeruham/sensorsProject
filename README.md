@@ -19,30 +19,45 @@ Fully expose the agent by attaching all the required sensors.
 
 ## Project Structure
 
+📦 Project Root
+├── 📁 sensors
+│ ├── sensor.cs
+│ ├── createSensor.cs
+│ └── sensorsList.cs
+├── 📁 agents
+│ ├── agent.cs
+│ ├── createAgent.cs
+│ └── agentList.cs
+├── 📁 investigations
+│ └── investigation.cs
+└── 📁 game
+├── gameManager.cs
+└── menuManager.cs
+
 ## 📁 sensors
 
 ### `sensor.cs`
-Class: `Sensor`  
-**Fields:**
+**Class: `Sensor`**  
+Fields:
 - `string name`
 - `string type`  
-**Methods:**
+Methods:
 - `void Activate()`
 
 ---
 
 ### `createSensor.cs`  
-Static Class: `CreateSensor`  
-**Methods:**
+**Static Class: `CreateSensor`**  
+Methods:
 - `Sensor CreateSensor()`
 
 ---
 
 ### `sensorsList.cs`  
-Class: `SensorsList`  
-**Fields:**
+**Class: `SensorsList`**  
+Fields:
 - `List<Sensor> sensors`  
-**Methods:**
+Methods:
 - `void AddSensor(Sensor sensor)`
 - `void RemoveSensor(Sensor sensor)`
 - `List<Sensor> GetSensors()`
@@ -52,25 +67,25 @@ Class: `SensorsList`
 ## 📁 agents
 
 ### `agent.cs`  
-Class: `Agent`  
-**Fields:**
+**Class: `Agent`**  
+Fields:
 - `string name`
 - `int rank`
 
 ---
 
 ### `createAgent.cs`  
-Static Class: `CreateAgent`  
-**Methods:**
+**Static Class: `CreateAgent`**  
+Methods:
 - `Agent CreateAgent()`
 
 ---
 
 ### `agentList.cs`  
-Class: `AgentList`  
-**Fields:**
+**Class: `AgentList`** 
+Fields:
 - `List<Agent> agents`  
-**Methods:**
+Methods:
 - `void AddAgent(Agent agent)`
 - `void RemoveAgent(Agent agent)`
 - `List<Agent> GetAgents()`
@@ -80,10 +95,10 @@ Class: `AgentList`
 ## 📁 investigations
 
 ### `investigation.cs`  
-Class: `Investigation`  
-**Fields:**  
+**Class: `Investigation`**  
+Fields:
 _(לא צוינו)_  
-**Methods:**  
+Methods:  
 _(לא צוינו)_
 
 ---
@@ -91,19 +106,19 @@ _(לא צוינו)_
 ## 📁 game
 
 ### `gameManager.cs`  
-Class: `GameManager`  
-**Fields:**  
+**Class: `GameManager`**  
+Fields:
 _(לא צוינו)_  
-**Methods:**  
+Methods:
 _(לא צוינו)_
 
 ---
 
 ### `menuManager.cs`  
-Class: `MenuManager`  
-**Fields:**  
+**Class: `MenuManager`**  
+Fields:
 _(לא צוינו)_  
-**Methods:**  
+Methods:  
 _(לא צוינו)_
 
 
