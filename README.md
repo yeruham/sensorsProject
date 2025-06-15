@@ -19,6 +19,7 @@ Fully expose the agent by attaching all the required sensors.
 
 ## Project Structure
 
+```plaintext
 📦 Project Root
 ├── 📁 sensors
 │   ├── sensor.cs
@@ -33,6 +34,7 @@ Fully expose the agent by attaching all the required sensors.
 └── 📁 game
     ├── gameManager.cs
     └── menuManager.cs
+
 
 ## 📁 sensors
 
