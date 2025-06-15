@@ -1,4 +1,4 @@
-### sensors project
+# sensors project
 **by yeruham mendelson**
 
 ## Sensors Game
@@ -14,3 +14,107 @@ After each attempt, you will receive feedback indicating whether the sensor matc
 
 🎯 **Objective:**  
 Fully expose the agent by attaching all the required sensors.
+
+# Project Structure
+
+## 📁 sensors
+
+### `sensor.cs`
+Class: `Sensor`
+
+**Fields:**
+- `string name`
+- `string type`
+
+**Methods:**
+- `void Activate()`
+
+---
+
+### `createSensor.cs`
+Static Class: `CreateSensor`
+
+**Methods:**
+- `Sensor CreateSensor()`
+
+---
+
+### `sensorsList.cs`
+Class: `SensorsList`
+
+**Fields:**
+- `List<Sensor> sensors`
+
+**Methods:**
+- `void AddSensor(Sensor sensor)`
+- `void RemoveSensor(Sensor sensor)`
+- `List<Sensor> GetSensors()`
+
+---
+
+## 📁 agents
+
+### `agent.cs`
+Class: `Agent`
+
+**Fields:**
+- `string name`
+- `int rank`
+
+---
+
+### `createAgent.cs`
+Static Class: `CreateAgent`
+
+**Methods:**
+- `Agent CreateAgent()`
+
+---
+
+### `agentList.cs`
+Class: `AgentList`
+
+**Fields:**
+- `List<Agent> agents`
+
+**Methods:**
+- `void AddAgent(Agent agent)`
+- `void RemoveAgent(Agent agent)`
+- `List<Agent> GetAgents()`
+
+---
+
+## 📁 investigations
+
+### `investigation.cs`
+Class: `Investigation`
+
+**Fields:**
+_(לא צוינו)_
+
+**Methods:**
+_(לא צוינו)_
+
+---
+
+## 📁 game
+
+### `gameManager.cs`
+Class: `GameManager`
+
+**Fields:**
+_(לא צוינו)_
+
+**Methods:**
+_(לא צוינו)_
+
+---
+
+### `menuManager.cs`
+Class: `MenuManager`
+
+**Fields:**
+_(לא צוינו)_
+
+**Methods:**
+_(לא צוינו)_
