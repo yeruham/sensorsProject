@@ -5,9 +5,12 @@ public class Agent
     public string name { get; }
     public int rank { get; }
     public int numSensors { get; }
-    private Dictionary<string, int> typeOfSensors { get; set; }
-    private int numActiveSensors { get; set; }
-    private Dictionary<string, int> activeSensors { get; set; }
+
+    private Dictionary<string, int> typeOfSensors;
+
+    private int numActiveSensors;
+
+    private Dictionary<string, int> activeSensors;
 
     public Agent(string name, int rank, Dictionary<string, int> typeOfSensors)
     {

@@ -47,6 +47,7 @@ public class Investigation
             }
         }
 
+
         compatibleSensors = this.agent.exposureLevel();
 
         this.endActivateSensors();
