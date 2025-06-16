@@ -23,10 +23,10 @@ public class Investigation
         }
     }
 
-    public float activateSensors()
+    public Dictionary<string, int> activateSensors()
     {
         bool succeeded = false;
-        float compatibleSensors = 0;
+        Dictionary<string, int> compatibleSensors = new Dictionary<string, int>();
 
         for (int i = 0; i < this.attachedSensors.Length; i++)
         {
@@ -37,7 +37,9 @@ public class Investigation
             }
         }
 
-        compatibleSensors = this.agent.compatibleSensors();
+        compatibleSensors["numSensors"] = this.agent.numSensors;
+        compatibleSensors["activeSensors"] = this.agent.numActiveSensors;
+        ;
         return compatibleSensors;
     }
 }
