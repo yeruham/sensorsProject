@@ -12,6 +12,7 @@
     public bool activate(Agent agent)
     {
         bool succeeded = false;
+        succeeded = agent.sensorActivated(this.type);
         return succeeded;
     }
 

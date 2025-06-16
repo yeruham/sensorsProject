@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 public class gameManager
 {
@@ -20,7 +21,8 @@ public class gameManager
     {
         for (int i = 0; i < num; i++)
         {
-            
+            Agent agent = createAgents.createAgent();
+            this.agentsList.addAgent(agent);
         }
     }
 
@@ -28,7 +30,8 @@ public class gameManager
     {
         for (int i = 0; i < num; i++)
         {
-
+            Sensor sensor = createSensors.createSensor();
+            this.sensorList.addSensor(sensor);
         }
     }
 
@@ -38,7 +41,7 @@ public class gameManager
     }
     public Investigation createInvestigation(int numAgent)
     {
-        if (this.agentsList.agents.Count > numAgent + 1) 
+        if (this.agentsList.agents.Count >= numAgent + 1) 
         {
             this.investigation = new Investigation(this.agentsList.agents[numAgent]);
         }

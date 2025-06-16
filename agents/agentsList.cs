@@ -9,12 +9,12 @@ public class AgentsList
         agents = new List<Agent>();
     }
 
-    public void addSensor(Agent agent)
+    public void addAgent(Agent agent)
     {
         agents.Add(agent);
     }
 
-    public void removeSensor(Agent agent)
+    public void removeAgent(Agent agent)
     {
         agents.Remove(agent);
     }

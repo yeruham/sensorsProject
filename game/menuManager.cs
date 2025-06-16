@@ -32,8 +32,8 @@ public class MenuManager
 
     private void startMenu()
     {
-        Console.WriteLine($"Welcome to the SENSOR GAME : \nThe current agent is {this.investigation.agent.name}. \n" +
-                          $"Each turn you can attach one of the sensors to it and try to expose it.\n");
+        Console.WriteLine($"Welcome to the SENSOR GAME : \n\nThe current agent is {this.investigation.agent.name}. \n" +
+                          $"Each turn you can attach one of the sensors to the agent and try to expose him.\n");
     }
 
     private void showSensors()
@@ -104,6 +104,7 @@ public class MenuManager
         Sensor[] sensors = this.investigation.getAttachedSensors();
         foreach (Sensor sensor in sensors)
         {
+
             Console.WriteLine($"Sensor name: {sensor.name}, type: {sensor.type}. ");
         }
     }

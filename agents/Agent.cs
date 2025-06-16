@@ -45,10 +45,10 @@ public class Agent
         return false;
     }
 
-    public float compatibleSensors()
+    public void resetActivateSensors()
     {
-        float result = (float) numActiveSensors / numSensors;
-        return result;
+        this.activeSensors = new Dictionary<string, int>();
+        this.numActiveSensors = 0;
     }
 
 }
