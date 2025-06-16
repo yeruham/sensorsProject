@@ -6,6 +6,7 @@ public class Agent
     public int rank { get; }
     public int numSensors { get; }
     public Dictionary<string, int> typeOfSensors { get; set; }
+    public int numActiveSensors { get; set; }
     public Dictionary<string, int> activeSensors { get; set; }
 
     public Agent(string name, int rank, Dictionary<string, int> typeOfSensors)
@@ -14,13 +15,15 @@ public class Agent
         this.rank = rank;
         this.numSensors = typeOfSensors.Count;
         this.typeOfSensors = typeOfSensors;
+        this.numActiveSensors = 0;
+        this.activeSensors = new Dictionary<string, int>();
     }
 
-    public int sensorActivated(string sensorType)
+    public bool sensorActivated(string sensorType)
     {
         if (!typeOfSensors.ContainsKey(sensorType))
         {
-            return 0;
+            return false;
         }
 
         int numThisType = typeOfSensors[sensorType];
@@ -28,16 +31,24 @@ public class Agent
         if (!activeSensors.ContainsKey(sensorType))
         {
             activeSensors[sensorType] = 1;
-            return 1;
+            this.numActiveSensors += 1;
+            return true;
         }
 
         if (activeSensors[sensorType] < numThisType)
         {
             activeSensors[sensorType] += 1;
-            return 1;
+            this.numActiveSensors += 1;
+            return true;
         }
 
-        return 0;
+        return false;
+    }
+
+    public float compatibleSensors()
+    {
+        float result = (float) numActiveSensors / numSensors;
+        return result;
     }
 
 }
