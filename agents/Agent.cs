@@ -5,9 +5,9 @@ public class Agent
     public string name { get; }
     public int rank { get; }
     public int numSensors { get; }
-    public Dictionary<string, int> typeOfSensors { get; set; }
-    public int numActiveSensors { get; set; }
-    public Dictionary<string, int> activeSensors { get; set; }
+    private Dictionary<string, int> typeOfSensors { get; set; }
+    private int numActiveSensors { get; set; }
+    private Dictionary<string, int> activeSensors { get; set; }
 
     public Agent(string name, int rank, Dictionary<string, int> typeOfSensors)
     {
@@ -43,6 +43,14 @@ public class Agent
         }
 
         return false;
+    }
+
+    public Dictionary<string, int> exposureLevel()
+    {
+        Dictionary<string, int> compatibleSensors = new Dictionary<string, int>();
+        compatibleSensors["numSensors"] = this.numSensors;
+        compatibleSensors["activeSensors"] = this.numActiveSensors;
+        return compatibleSensors;
     }
 
     private int calcNumSensors()

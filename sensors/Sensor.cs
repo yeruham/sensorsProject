@@ -2,7 +2,8 @@
 {
     public string name { get; }
     public string type { get; }
-    private bool isActive { get; set; }
+
+    private bool isActive;
 
     public Sensor(string name, string type)
     {
@@ -14,6 +15,7 @@
     public bool activate(Agent agent)
     {
         bool succeeded = false;
+
         if (!this.isActive)
         {
             succeeded = agent.sensorActivated(this.type);

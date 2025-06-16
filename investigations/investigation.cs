@@ -29,7 +29,7 @@ public class Investigation
     public Dictionary<string, int> activateSensors()
     {
         bool succeeded = false;
-        Dictionary<string, int> compatibleSensors = new Dictionary<string, int>();
+        Dictionary<string, int> compatibleSensors;
 
         for (int i = 0; i < this.attachedSensors.Length; i++)
         {
@@ -47,17 +47,17 @@ public class Investigation
             }
         }
 
-        compatibleSensors["numSensors"] = this.agent.numSensors;
-        compatibleSensors["activeSensors"] = this.agent.numActiveSensors;
+        compatibleSensors = this.agent.exposureLevel();
 
         this.endActivateSensors();
-        this.agent.resetActivateSensors();
 
         return compatibleSensors;
     }
 
     private void endActivateSensors()
     {
+        this.agent.resetActivateSensors();
+
         for (int i = 0; i < this.attachedSensors.Length; i++)
         {
             if (this.attachedSensors[i] == null)
