@@ -8,12 +8,12 @@ public class gameManager
     private Investigation investigation;
 
 
-    public gameManager()
+    public gameManager(int numAgents, int numSensors)
     {
         agentsList = new AgentsList();
         sensorList = new SensorList();
-        this.addAgents(1);
-        this.addSensors(2);
+        this.addAgents(numAgents);
+        this.addSensors(numSensors);
     }
 
     private void addAgents(int num)
@@ -32,6 +32,10 @@ public class gameManager
         }
     }
 
+    public List<Sensor> getSensors()
+    {
+        return this.sensorList.sensors;
+    }
     public Investigation createInvestigation(int numAgent)
     {
         if (this.agentsList.agents.Count > numAgent + 1) 
@@ -40,6 +44,34 @@ public class gameManager
         }
 
         return this.investigation;
+    }
+
+    public Dictionary<string, int> startInvestigation(string nameSensor)
+    {
+        Dictionary<string, int> compatibleSensors = null;
+        Sensor sensor = this.findSensorByName(nameSensor);
+
+        if (sensor != null)
+        {
+            this.investigation.addSensor(sensor);
+            compatibleSensors = this.investigation.activateSensors();
+        }
+
+        return compatibleSensors;
+    }
+
+    private Sensor findSensorByName(string nameSensor)
+    {
+        Sensor sensor = null;
+        foreach (Sensor s in this.sensorList.sensors)
+        {
+            if (s.name == nameSensor)
+            {
+                sensor = s;
+                break;
+            }
+        }
+        return sensor;
     }
 
 }

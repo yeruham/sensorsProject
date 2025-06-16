@@ -42,4 +42,9 @@ public class Investigation
         ;
         return compatibleSensors;
     }
+
+    public Sensor[] getAttachedSensors()
+    {
+        return this.attachedSensors;
+    }
 }
