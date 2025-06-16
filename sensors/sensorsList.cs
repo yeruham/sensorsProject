@@ -2,7 +2,7 @@
 
 public class SensorList
 {
-    private List<Sensor> sensors;
+    public List<Sensor> sensors;
     
     public SensorList()
     {
@@ -19,8 +19,4 @@ public class SensorList
         sensors.Remove(sensor);
     }
 
-    public List<Sensor> getSensors()
-    {
-        return this.sensors;
-    }
 }
