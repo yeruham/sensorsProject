@@ -13,8 +13,8 @@ public class Agent
     {
         this.name = name;
         this.rank = rank;
-        this.numSensors = typeOfSensors.Count;
         this.typeOfSensors = typeOfSensors;
+        this.numSensors = this.calcNumSensors();
         this.numActiveSensors = 0;
         this.activeSensors = new Dictionary<string, int>();
     }
@@ -44,6 +44,17 @@ public class Agent
 
         return false;
     }
+
+    private int calcNumSensors()
+    {
+        int numSensors = 0;
+        foreach(int num in this.typeOfSensors.Values)
+        {
+            numSensors += num;
+        }
+
+        return numSensors;
+    } 
 
     public void resetActivateSensors()
     {

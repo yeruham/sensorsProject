@@ -14,7 +14,7 @@ public class Investigation
 
     public void addSensor(Sensor sensor)
     {
-        //this.printSensors();
+
         for (int i = 0; i < this.attachedSensors.Length; i++)
         {
             if (this.attachedSensors[i] == null)
@@ -23,13 +23,14 @@ public class Investigation
                 break;
             }
         }
-        //this.printSensors();
+
     }
 
     public Dictionary<string, int> activateSensors()
     {
         bool succeeded = false;
         Dictionary<string, int> compatibleSensors = new Dictionary<string, int>();
+
         for (int i = 0; i < this.attachedSensors.Length; i++)
         {
             if (this.attachedSensors[i] == null)
@@ -49,9 +50,25 @@ public class Investigation
         compatibleSensors["numSensors"] = this.agent.numSensors;
         compatibleSensors["activeSensors"] = this.agent.numActiveSensors;
 
+        this.endActivateSensors();
         this.agent.resetActivateSensors();
 
         return compatibleSensors;
+    }
+
+    private void endActivateSensors()
+    {
+        for (int i = 0; i < this.attachedSensors.Length; i++)
+        {
+            if (this.attachedSensors[i] == null)
+            {
+
+            }
+            else
+            {
+                this.attachedSensors[i].endActive();
+            }
+        }
     }
 
     public Sensor[] getAttachedSensors()
@@ -69,7 +86,7 @@ public class Investigation
             }
             else
             {
-                Console.WriteLine("the sensor is nall");
+                Console.WriteLine("the sensor is null");
             }
         }
     }

@@ -42,7 +42,7 @@ public class MenuManager
         List<Sensor> sensors = this.gameManager.getSensors();
         foreach (Sensor sensor in sensors)
         {
-            Console.Write($"sensor name: {sensor.name}, type: {sensor.type}. ");
+            Console.WriteLine($"sensor name: {sensor.name}, type: {sensor.type}. ");
         }
         Console.WriteLine("\n");
     }

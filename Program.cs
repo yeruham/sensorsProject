@@ -10,7 +10,7 @@ namespace sensorsProject
     {
         static void Main(string[] args)
         {
-            MenuManager game = new MenuManager(1, 2);
+            MenuManager game = new MenuManager(1, 5);
             game.startGame();
         }
     }
