@@ -12,18 +12,34 @@ public class Investigation
         this.attachedSensors = new Sensor[agent.numSensors];
     }
 
-    public void addSensor(Sensor sensor)
+    public bool addSensor(Sensor sensor)
     {
-
+        bool addSuccess = false;
         for (int i = 0; i < this.attachedSensors.Length; i++)
         {
             if (this.attachedSensors[i] == null)
             {
                 this.attachedSensors[i] = sensor;
+                addSuccess = true;
                 break;
             }
         }
+        return addSuccess;
+    }
 
+    public bool removeSensor(Sensor sensor)
+    {
+        bool removeSuccess = false;
+        for (int i = 0; i < this.attachedSensors.Length; i++)
+        {
+            if (this.attachedSensors[i] == sensor)
+            {
+                this.attachedSensors[i] = null;
+                removeSuccess = true;
+                break;
+            }
+        }
+        return removeSuccess;
     }
 
     public Dictionary<string, int> activateSensors()
@@ -40,10 +56,6 @@ public class Investigation
             else
             {
                 succeeded = this.attachedSensors[i].activate(this.agent);
-            }
-            if (!succeeded)
-            {
-                this.attachedSensors[i] = null;
             }
         }
 
