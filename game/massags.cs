@@ -4,7 +4,7 @@ using System.Xml;
 
 public static class Massage
 {
-    public static string newSensor = "Write the name of sensor you want\n";
+    public static string newSensor = "Write the name of sensor you want to add\n";
     public static string noSensor = "\nNo agent with that name found, try again\n";
     public static string noSensorInList = $"\nYou have already chosen all sensors," +
                                           $"\nto continue remove an existing sensor, by write his name\n";
