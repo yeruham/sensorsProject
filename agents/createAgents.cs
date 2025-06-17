@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public static class createAgents
 {
     private static Random _random = new Random();
-    private static string[] _typeWeaknesses = { "thermal", "audio" };
+    private static string[] _typeWeaknesses = { "Thermal", "Audio", "Pulse" };
     private static string[] _names = {"Daniel", "Yeruham", "Noa", "Eden", "Lior", "Avi", "Shara" };
     public static Agent createAgent()
     {

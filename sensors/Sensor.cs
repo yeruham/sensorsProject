@@ -1,12 +1,12 @@
 ﻿public class Sensor
 {
     public string name { get; }
-    public string type { get; }
+    public string type { get; set; }
 
-    public Sensor(string name, string type)
+    public Sensor(string name)
     {
         this.name = name;
-        this.type = type;
+        this.type = "Audio";
     }
 
     public bool activate(Agent agent)
