@@ -10,7 +10,8 @@ namespace sensorsProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("start project");
+            MenuManager game = new MenuManager(3, 6);
+            game.startGame();
         }
     }
 }
