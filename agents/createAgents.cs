@@ -8,15 +8,15 @@ public static class createAgents
     private static string[] _names = {"Daniel", "Yeruham", "Noa", "Eden", "Lior", "Avi", "Shara" };
     public static Agent createAgent()
     {
-        string name = _creatName();
-        int rank = _creatRank();
-        Dictionary<string, int> weaknesses = _creatWeaknesses();
+        string name = _createName();
+        int rank = _createRank();
+        Dictionary<string, int> weaknesses = _createWeaknesses();
 
         Agent agent = new Agent(name, rank, weaknesses);
         return agent;
     }
 
-    private static Dictionary<string, int> _creatWeaknesses()
+    private static Dictionary<string, int> _createWeaknesses()
     {
         Dictionary<string, int> weaknesses = new Dictionary<string, int>();
 
@@ -41,13 +41,13 @@ public static class createAgents
         return weaknesses;
     }
 
-    private static int _creatRank()
+    private static int _createRank()
     {
         int rank = _random.Next(2, 5);
         return rank;
     }
 
-    private static string _creatName()
+    private static string _createName()
     {
         int num = _random.Next(0, _names.Length);
         string name = _names[num];
