@@ -6,17 +6,34 @@ public class Investigation
     private Sensor[] attachedSensors;
     public Agent agent { get; }
 
+
     public Investigation(Agent agent)
     {
         this.agent = agent;
         this.attachedSensors = new Sensor[agent.numSensors];
     }
 
+    public bool fullList()
+    {
+        int numFull = 0;
+        foreach (Sensor sensor in this.attachedSensors)
+        {
+            if (sensor != null)
+            {
+                numFull++;
+            }
+        }
+        return (numFull == this.attachedSensors.Length);
+    }
     public bool addSensor(Sensor sensor)
     {
         bool addSuccess = false;
         for (int i = 0; i < this.attachedSensors.Length; i++)
         {
+            if (this.attachedSensors[i] == sensor)
+            {
+                break;
+            }
             if (this.attachedSensors[i] == null)
             {
                 this.attachedSensors[i] = sensor;
@@ -62,27 +79,11 @@ public class Investigation
 
         compatibleSensors = this.agent.exposureLevel();
 
-        this.endActivateSensors();
+        this.agent.resetActivateSensors();
 
         return compatibleSensors;
     }
 
-    private void endActivateSensors()
-    {
-        this.agent.resetActivateSensors();
-
-        for (int i = 0; i < this.attachedSensors.Length; i++)
-        {
-            if (this.attachedSensors[i] == null)
-            {
-
-            }
-            else
-            {
-                this.attachedSensors[i].endActive();
-            }
-        }
-    }
 
     public Sensor[] getAttachedSensors()
     {

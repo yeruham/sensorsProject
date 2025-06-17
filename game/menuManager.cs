@@ -17,13 +17,13 @@ public class MenuManager
         this.startMenu();
         this.showSensors();
 
-        string nameSensor = "";
+        Sensor sensor;
         bool agentExposed = false;
 
         do
         {
-            nameSensor = this.selectSensor();
-            agentExposed = this.resultInvestigation(nameSensor);
+            sensor = this.selectSensor("Write the name of sensor you want\n");
+            agentExposed = this.startInvestigation(sensor);
 
         } while (!agentExposed);
 
@@ -47,19 +47,49 @@ public class MenuManager
         Console.WriteLine("\n");
     }
 
-    private string selectSensor()
+    private Sensor selectSensor(string massage)
     {
-        Console.WriteLine("Write the name of sensor you want");
-        string typeSensor = Console.ReadLine();
-        return typeSensor;
+        Sensor sensor = null;
+
+        do
+        {
+            Console.WriteLine(massage);
+            string nameSensor = Console.ReadLine();
+
+            sensor = this.gameManager.findSensorByName(nameSensor);
+            massage = "\nNo agent with that name found, try again\n";
+        } 
+        while (sensor == null);
+        
+        return sensor;
     }
 
-    private bool resultInvestigation(string nameSensor)
+    private bool startInvestigation(Sensor sensor)
+    {
+        bool agentExposed = false;
+       
+        this.investigation.addSensor(sensor);
+        agentExposed = this.resultInvestigation();
+
+        if (!agentExposed && this.investigation.fullList())
+        {
+            bool sensorDeleted = false;
+            do
+            {
+                Sensor sensorToRemove = this.selectSensor($"\nYou have already chosen {this.investigation.agent.numSensors} sensors," +
+                                                          $"\nto continue remove an existing sensor, by write his name\n");
+                sensorDeleted = this.investigation.removeSensor(sensorToRemove);
+            } while (!sensorDeleted);
+        }
+
+        return agentExposed;
+    }
+    
+    private bool resultInvestigation()
     {
         bool agentExposed = false;
         Dictionary<string, int> compatibleSensors = null;
-        compatibleSensors = this.gameManager.startInvestigation(nameSensor);
-
+        compatibleSensors = this.investigation.activateSensors();
 
         if (compatibleSensors != null)
         {
@@ -70,24 +100,16 @@ public class MenuManager
         }
 
         this.showResult(compatibleSensors);
-
         return agentExposed;
     }
 
     private void showResult(Dictionary<string, int> compatibleSensors)
     {
-        if (compatibleSensors != null)
-        {
-            foreach(KeyValuePair<string, int> result in compatibleSensors)
+        foreach (KeyValuePair<string, int> result in compatibleSensors)
             {
                 Console.Write($"the {result.Key} is {result.Value}. ");
             }
-            Console.WriteLine("\n");
-        }
-        else
-        {
-            Console.WriteLine("\nThe agent name dose not exit, try again\n");
-        }
+        Console.WriteLine("\n");
     }
 
     private void showExposed()

@@ -39,6 +39,7 @@ public class gameManager
     {
         return this.sensorList.sensors;
     }
+
     public Investigation createInvestigation(int numAgent)
     {
         if (this.agentsList.agents.Count >= numAgent + 1) 
@@ -49,21 +50,7 @@ public class gameManager
         return this.investigation;
     }
 
-    public Dictionary<string, int> startInvestigation(string nameSensor)
-    {
-        Dictionary<string, int> compatibleSensors = null;
-        Sensor sensor = this.findSensorByName(nameSensor);
-
-        if (sensor != null)
-        {
-            this.investigation.addSensor(sensor);
-            compatibleSensors = this.investigation.activateSensors();
-        }
-
-        return compatibleSensors;
-    }
-
-    private Sensor findSensorByName(string nameSensor)
+    public Sensor findSensorByName(string nameSensor)
     {
         Sensor sensor = null;
         foreach (Sensor s in this.sensorList.sensors)
@@ -76,5 +63,49 @@ public class gameManager
         }
         return sensor;
     }
+
+    //public bool fullAttachedSensors()
+    //{
+    //    int numFull = 0;
+    //    Sensor[] attachedSensors = this.investigation.getAttachedSensors();
+    //    foreach (Sensor sensor in attachedSensors)
+    //    {
+    //        if (sensor != null)
+    //        {
+    //            numFull++;
+    //        }
+    //    }
+    //    return (numFull == attachedSensors.Length);
+    //}
+
+    //public bool sensorInAttachedSensors(Sensor sensor)
+    //{
+    //    bool sensorExit = false;
+    //    Sensor[] attachedSensors = this.investigation.getAttachedSensors();
+    //    foreach (Sensor s in attachedSensors)
+    //    {
+    //        if (s == sensor)
+    //        {
+    //            sensorExit = true;
+    //            break;
+    //        }
+    //    }
+    //    return sensorExit;
+    //}
+
+    //public Dictionary<string, int> startInvestigation(Sensor sensor)
+    //{
+    //    Dictionary<string, int> compatibleSensors = null;
+    //    bool addSuccess = false;
+
+    //    addSuccess = this.investigation.addSensor(sensor);
+    //    if (addSuccess)
+    //    {
+    //        compatibleSensors = this.investigation.activateSensors();
+    //    }
+
+    //    return compatibleSensors;
+    //}
+
 
 }
