@@ -9,7 +9,7 @@
         this.type = "Audio";
     }
 
-    public bool activate(Agent agent)
+    public virtual bool activate(Agent agent)
     {
         bool succeeded = false;
 

@@ -7,7 +7,7 @@ public static class createSensors
     private static Func<string, Sensor>[] _typeSensors = { createAudioSensor, createPulseSensor, createThermalSensor };
 
 
-    private static string[] _names = { "A23", "V5", "F23", "P12", "G3", "N7", "C45", "W34", "Q12" };
+    //private static string[] _names = { "A23", "V5", "F23", "P12", "G3", "N7", "C45", "W34", "Q12" };
     public static Sensor createSensor()
     {
         string name = createName();
@@ -34,9 +34,9 @@ public static class createSensors
     }
     private static string createName()
     {
-        int num = _random.Next(0, _names.Length);
-        string name = _names[num];
-        _names[num] = Convert.ToString(_random.Next(100, 500));
+        int num = _random.Next(100, 500);
+        char randLeeder = (char)('A' + _random.Next(26));
+        string name = randLeeder + Convert.ToString(num);
         return name;
     }
 
