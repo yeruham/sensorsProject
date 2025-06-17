@@ -21,6 +21,7 @@ public class MenuManager
 
         do
         {
+
             sensor = this.selectSensor(Massage.newSensor);
             agentExposed = this.startInvestigation(sensor);
 
