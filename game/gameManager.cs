@@ -4,15 +4,15 @@ using System.Collections.Generic;
 public class gameManager
 {
 
-    private AgentsList agentsList;
-    private SensorList sensorList;
+    private List<Agent> agentsList;
+    private List<Sensor> sensorList;
     private Investigation investigation;
 
 
     public gameManager(int numAgents, int numSensors)
     {
-        agentsList = new AgentsList();
-        sensorList = new SensorList();
+        agentsList = new List<Agent>();
+        sensorList = new List<Sensor>();
         this.addAgents(numAgents);
         this.addSensors(numSensors);
     }
@@ -22,7 +22,7 @@ public class gameManager
         for (int i = 0; i < num; i++)
         {
             Agent agent = createAgents.createAgent();
-            this.agentsList.addAgent(agent);
+            this.agentsList.Add(agent);
         }
     }
 
@@ -31,20 +31,20 @@ public class gameManager
         for (int i = 0; i < num; i++)
         {
             Sensor sensor = createSensors.createSensor();
-            this.sensorList.addSensor(sensor);
+            this.sensorList.Add(sensor);
         }
     }
 
     public List<Sensor> getSensors()
     {
-        return this.sensorList.sensors;
+        return this.sensorList;
     }
 
     public Investigation createInvestigation(int numAgent)
     {
-        if (this.agentsList.agents.Count >= numAgent + 1) 
+        if (this.agentsList.Count >= numAgent + 1) 
         {
-            this.investigation = new Investigation(this.agentsList.agents[numAgent]);
+            this.investigation = new Investigation(this.agentsList[numAgent]);
         }
 
         return this.investigation;
@@ -53,7 +53,7 @@ public class gameManager
     public Sensor findSensorByName(string nameSensor)
     {
         Sensor sensor = null;
-        foreach (Sensor s in this.sensorList.sensors)
+        foreach (Sensor s in this.sensorList)
         {
             if (s.name == nameSensor)
             {
