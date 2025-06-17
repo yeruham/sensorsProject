@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml;
 
 public static class Massage
 {
+    public static string newSensor = "Write the name of sensor you want\n";
+    public static string noSensor = "\nNo agent with that name found, try again\n";
+    public static string noSensorInList = $"\nYou have already chosen all sensors," +
+                                          $"\nto continue remove an existing sensor, by write his name\n";
     public static void showMenu(string agentName)
     {
         Console.WriteLine($"Welcome to the SENSOR GAME : \n\nThe current agent is {agentName}. \n" +
@@ -19,8 +24,17 @@ public static class Massage
         Console.WriteLine("\n");
     }
 
+
+    public static void WriteSensor(string massage)
+    {
+        Console.WriteLine(massage);
+    }
+
+
+
     public static void showResult(Dictionary<string, int> compatibleSensors)
     {
+        Console.WriteLine();
         foreach (KeyValuePair<string, int> result in compatibleSensors)
         {
             Console.Write($"the {result.Key} is {result.Value}. ");
