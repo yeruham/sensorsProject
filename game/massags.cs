@@ -52,11 +52,19 @@ public static class Massage
 
     public static void showSensors(Sensor[] sensors)
     {
+        Console.WriteLine("The list of attached sensors is: ");
         foreach (Sensor sensor in sensors)
         {
-
-            Console.WriteLine($"Sensor name: {sensor.name}, type: {sensor.type}. ");
+            if (sensor != null) 
+            {
+                Console.WriteLine($"Sensor name: {sensor.name}, type: {sensor.type}.");
+            }
+            else
+            {
+                Console.WriteLine($"Sensor name: null, type: null.");
+            }
         }
+        Console.WriteLine();
     }
 
 }

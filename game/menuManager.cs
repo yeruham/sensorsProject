@@ -89,6 +89,7 @@ public class MenuManager
         }
 
         Massage.showResult(compatibleSensors);
+        Massage.showSensors(this.investigation.getAttachedSensors());
         return agentExposed;
     }
 
