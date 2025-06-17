@@ -14,8 +14,10 @@ public class MenuManager
 
     public void startGame()
     {
-        this.startMenu();
-        this.showSensors();
+        //this.startMenu();
+        Massage.showMenu(this.investigation.agent.name);
+        //this.showSensors();
+        Massage.showSensors(this.gameManager.getSensors());
 
         Sensor sensor;
         bool agentExposed = false;
@@ -27,25 +29,27 @@ public class MenuManager
 
         } while (!agentExposed);
 
-        this.showExposed();
+        //this.showExposed();
+        Massage.showExposed(this.investigation.agent);
+        Massage.showSensors(this.investigation.getAttachedSensors());
     }
 
-    private void startMenu()
-    {
-        Console.WriteLine($"Welcome to the SENSOR GAME : \n\nThe current agent is {this.investigation.agent.name}. \n" +
-                          $"Each turn you can attach one of the sensors to the agent and try to expose him.\n");
-    }
+    //private void startMenu()
+    //{
+    //    Console.WriteLine($"Welcome to the SENSOR GAME : \n\nThe current agent is {this.investigation.agent.name}. \n" +
+    //                      $"Each turn you can attach one of the sensors to the agent and try to expose him.\n");
+    //}
 
-    private void showSensors()
-    {
-        Console.WriteLine($"The sensors are:");
-        List<Sensor> sensors = this.gameManager.getSensors();
-        foreach (Sensor sensor in sensors)
-        {
-            Console.WriteLine($"sensor name: {sensor.name}, type: {sensor.type}. ");
-        }
-        Console.WriteLine("\n");
-    }
+    //private void showSensors()
+    //{
+    //    Console.WriteLine($"The sensors are:");
+    //    List<Sensor> sensors = this.gameManager.getSensors();
+    //    foreach (Sensor sensor in sensors)
+    //    {
+    //        Console.WriteLine($"sensor name: {sensor.name}, type: {sensor.type}. ");
+    //    }
+    //    Console.WriteLine("\n");
+    //}
 
     private Sensor selectSensor(string massage)
     {
@@ -99,36 +103,36 @@ public class MenuManager
             }
         }
 
-        this.showResult(compatibleSensors);
+        Massage.showResult(compatibleSensors);
         return agentExposed;
     }
 
-    private void showResult(Dictionary<string, int> compatibleSensors)
-    {
-        foreach (KeyValuePair<string, int> result in compatibleSensors)
-            {
-                Console.Write($"the {result.Key} is {result.Value}. ");
-            }
-        Console.WriteLine("\n");
-    }
+    //private void showResult(Dictionary<string, int> compatibleSensors)
+    //{
+    //    foreach (KeyValuePair<string, int> result in compatibleSensors)
+    //        {
+    //            Console.Write($"the {result.Key} is {result.Value}. ");
+    //        }
+    //    Console.WriteLine("\n");
+    //}
 
-    private void showExposed()
-    {
-        Console.WriteLine($"\nWell done, the agent {this.investigation.agent.name} was exposed!!\n" +
-                          $"Is rank is {this.investigation.agent.rank}\n" +
-                          $"Is num sensors is {this.investigation.agent.numSensors}\n" +
-                          $"By:");
-        this.showActivateSensors();
-    }
+    //private void showExposed()
+    //{
+    //    Console.WriteLine($"\nWell done, the agent {this.investigation.agent.name} was exposed!!\n" +
+    //                      $"Is rank is {this.investigation.agent.rank}\n" +
+    //                      $"Is num sensors is {this.investigation.agent.numSensors}\n" +
+    //                      $"By:");
+    //    this.showActivateSensors();
+    //}
 
-    private void showActivateSensors()
-    {
-        Sensor[] sensors = this.investigation.getAttachedSensors();
-        foreach (Sensor sensor in sensors)
-        {
+    //private void showActivateSensors()
+    //{
+    //    Sensor[] sensors = this.investigation.getAttachedSensors();
+    //    foreach (Sensor sensor in sensors)
+    //    {
 
-            Console.WriteLine($"Sensor name: {sensor.name}, type: {sensor.type}. ");
-        }
-    }
+    //        Console.WriteLine($"Sensor name: {sensor.name}, type: {sensor.type}. ");
+    //    }
+    //}
 
 }

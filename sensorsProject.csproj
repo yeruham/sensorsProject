@@ -47,6 +47,8 @@
     <Compile Include="agents\agentsList.cs" />
     <Compile Include="agents\createAgents.cs" />
     <Compile Include="game\gameManager.cs" />
+    <Compile Include="game\investigationManager.cs" />
+    <Compile Include="game\massags.cs" />
     <Compile Include="game\menuManager.cs" />
     <Compile Include="investigations\investigation.cs" />
     <Compile Include="Program.cs" />

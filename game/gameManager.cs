@@ -64,48 +64,4 @@ public class gameManager
         return sensor;
     }
 
-    //public bool fullAttachedSensors()
-    //{
-    //    int numFull = 0;
-    //    Sensor[] attachedSensors = this.investigation.getAttachedSensors();
-    //    foreach (Sensor sensor in attachedSensors)
-    //    {
-    //        if (sensor != null)
-    //        {
-    //            numFull++;
-    //        }
-    //    }
-    //    return (numFull == attachedSensors.Length);
-    //}
-
-    //public bool sensorInAttachedSensors(Sensor sensor)
-    //{
-    //    bool sensorExit = false;
-    //    Sensor[] attachedSensors = this.investigation.getAttachedSensors();
-    //    foreach (Sensor s in attachedSensors)
-    //    {
-    //        if (s == sensor)
-    //        {
-    //            sensorExit = true;
-    //            break;
-    //        }
-    //    }
-    //    return sensorExit;
-    //}
-
-    //public Dictionary<string, int> startInvestigation(Sensor sensor)
-    //{
-    //    Dictionary<string, int> compatibleSensors = null;
-    //    bool addSuccess = false;
-
-    //    addSuccess = this.investigation.addSensor(sensor);
-    //    if (addSuccess)
-    //    {
-    //        compatibleSensors = this.investigation.activateSensors();
-    //    }
-
-    //    return compatibleSensors;
-    //}
-
-
 }
