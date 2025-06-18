@@ -6,8 +6,6 @@ public class GameBuilder
 
     private List<Agent> agentsList;
     private List<Sensor> sensorList;
-    private Investigation investigation;
-
 
     public GameBuilder(int numAgents, int numSensors)
     {
@@ -47,14 +45,9 @@ public class GameBuilder
         return this.sensorList;
     }
 
-    public Investigation createInvestigation(int numAgent)
+    public List<Agent> getAgents()
     {
-        if (this.agentsList.Count >= numAgent + 1) 
-        {
-            this.investigation = new Investigation(this.agentsList[numAgent]);
-        }
-
-        return this.investigation;
+        return this.agentsList;
     }
 
     public Sensor findSensorByName(string nameSensor)
