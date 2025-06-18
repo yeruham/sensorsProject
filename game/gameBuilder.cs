@@ -5,13 +5,16 @@ public class GameBuilder
 {
 
     private List<Agent> agentsList;
+    private List<Agent> commandersList;
     private List<Sensor> sensorList;
 
-    public GameBuilder(int numSensors, int numAgents)
+    public GameBuilder(int numSensors, int numAgents, int numCommanders)
     {
-        agentsList = new List<Agent>();
-        sensorList = new List<Sensor>();
+        this.agentsList = new List<Agent>();
+        this.commandersList = new List<Agent>();
+        this.sensorList = new List<Sensor>();
         this.addAgents(numAgents);
+        this.addCommandAgents(numCommanders);
         this.addSensors(numSensors);
     }
 
@@ -25,12 +28,12 @@ public class GameBuilder
 
     }
 
-    public void addCommandAgents(int num)
+    private void addCommandAgents(int num)
     {
         for (int i = 0; i < num; i++)
         {
-            Agent agent = createAgents.createCommanderAgent();
-            this.agentsList.Add(agent);
+            CommanderAgent agent = createAgents.createCommanderAgent();
+            this.commandersList.Add(agent);
         }
     }
 
@@ -46,6 +49,11 @@ public class GameBuilder
     public List<Sensor> getSensors()
     {
         return this.sensorList;
+    }
+
+    public  List<Agent> GetCommanderAgents()
+    {
+        return this.commandersList;
     }
 
     public List<Agent> getAgents()
@@ -67,4 +75,9 @@ public class GameBuilder
         return sensor;
     }
 
+    public void rebootSensors(int num)
+    {
+        this.sensorList = new List<Sensor>();
+        this.addSensors(num);
+    }
 }

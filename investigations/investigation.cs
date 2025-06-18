@@ -7,7 +7,6 @@ public class Investigation
 
     public Agent agent { get; }
 
-
     public Investigation(Agent agent)
     {
         this.agent = agent;
@@ -69,14 +68,12 @@ public class Investigation
         {
             if (this.agent.attachedSensors[i] == null)
             {
-
             }
             else
             {
                 succeeded = this.agent.attachedSensors[i].activate(this.agent);
             }
         }
-
 
         compatibleSensors = this.agent.exposureLevel();
 
@@ -85,24 +82,9 @@ public class Investigation
         return compatibleSensors;
     }
 
-
     public Sensor[] getAttachedSensors()
     {
         return this.agent.attachedSensors;
     }
 
-    public void printSensors()
-    {
-        foreach (Sensor sensor in this.agent.attachedSensors)
-        {
-            if (sensor != null)
-            {
-                Console.WriteLine($"Sensor name: {sensor.name}, type: {sensor.type}. ");
-            }
-            else
-            {
-                Console.WriteLine("the sensor is null");
-            }
-        }
-    }
 }

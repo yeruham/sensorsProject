@@ -18,6 +18,7 @@ public class CommanderAgent: Agent
     }
     public void counterAttack()
     {
+        Console.WriteLine("link num   "  +this.linkNum);
         if (this.linkNum >= 3)
         {
             for(int i = this.numSensors - 1; i > -1; i--)
