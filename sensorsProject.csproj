@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="agents\Agent.cs" />
     <Compile Include="agents\agentsList.cs" />
+    <Compile Include="agents\commanderAgent.cs" />
     <Compile Include="agents\createAgents.cs" />
     <Compile Include="sensors\pulseSensor.cs" />
     <Compile Include="sensors\signalSensor.cs" />

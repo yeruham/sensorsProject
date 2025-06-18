@@ -12,6 +12,8 @@ public class Agent
 
     protected Dictionary<string, int> activeSensors;
 
+    public Sensor[] attachedSensors;
+
     public Agent(string name, int rank, Dictionary<string, int> typeOfSensors)
     {
         this.name = name;
@@ -20,6 +22,7 @@ public class Agent
         this.numSensors = this.calcNumSensors();
         this.numActiveSensors = 0;
         this.activeSensors = new Dictionary<string, int>();
+        this.attachedSensors = new Sensor[this.numSensors];
     }
 
     public bool sensorActivated(string sensorType)
