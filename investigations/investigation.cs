@@ -1,42 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Investigation
 {
-    private Sensor[] attachedSensors;
-    public Agent agent { get; }
 
+    public Agent agent { get; }
 
     public Investigation(Agent agent)
     {
         this.agent = agent;
-        this.attachedSensors = new Sensor[agent.numSensors];
     }
 
     public bool fullList()
     {
         int numFull = 0;
-        foreach (Sensor sensor in this.attachedSensors)
+        foreach (Sensor sensor in this.agent.attachedSensors)
         {
             if (sensor != null)
             {
                 numFull++;
             }
         }
-        return (numFull == this.attachedSensors.Length);
+        return (numFull == this.agent.attachedSensors.Length);
     }
     public bool addSensor(Sensor sensor)
     {
         bool addSuccess = false;
-        for (int i = 0; i < this.attachedSensors.Length; i++)
+        if (this.agent.attachedSensors.Contains(sensor))
         {
-            if (this.attachedSensors[i] == sensor)
+            return addSuccess;
+        }
+
+        for (int i = 0; i < this.agent.attachedSensors.Length; i++)
+        {
+            if (this.agent.attachedSensors[i] == null)
             {
-                break;
-            }
-            if (this.attachedSensors[i] == null)
-            {
-                this.attachedSensors[i] = sensor;
+                this.agent.attachedSensors[i] = sensor;
                 addSuccess = true;
                 break;
             }
@@ -47,11 +47,11 @@ public class Investigation
     public bool removeSensor(Sensor sensor)
     {
         bool removeSuccess = false;
-        for (int i = 0; i < this.attachedSensors.Length; i++)
+        for (int i = 0; i < this.agent.attachedSensors.Length; i++)
         {
-            if (this.attachedSensors[i] == sensor)
+            if (this.agent.attachedSensors[i] == sensor)
             {
-                this.attachedSensors[i] = null;
+                this.agent.attachedSensors[i] = null;
                 removeSuccess = true;
                 break;
             }
@@ -64,18 +64,16 @@ public class Investigation
         bool succeeded = false;
         Dictionary<string, int> compatibleSensors;
 
-        for (int i = 0; i < this.attachedSensors.Length; i++)
+        for (int i = 0; i < this.agent.attachedSensors.Length; i++)
         {
-            if (this.attachedSensors[i] == null)
+            if (this.agent.attachedSensors[i] == null)
             {
-
             }
             else
             {
-                succeeded = this.attachedSensors[i].activate(this.agent);
+                succeeded = this.agent.attachedSensors[i].activate(this.agent);
             }
         }
-
 
         compatibleSensors = this.agent.exposureLevel();
 
@@ -84,24 +82,9 @@ public class Investigation
         return compatibleSensors;
     }
 
-
     public Sensor[] getAttachedSensors()
     {
-        return this.attachedSensors;
+        return this.agent.attachedSensors;
     }
 
-    public void printSensors()
-    {
-        foreach (Sensor sensor in this.attachedSensors)
-        {
-            if (sensor != null)
-            {
-                Console.WriteLine($"Sensor name: {sensor.name}, type: {sensor.type}. ");
-            }
-            else
-            {
-                Console.WriteLine("the sensor is null");
-            }
-        }
-    }
 }

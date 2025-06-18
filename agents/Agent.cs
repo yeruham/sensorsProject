@@ -6,11 +6,13 @@ public class Agent
     public int rank { get; }
     public int numSensors { get; }
 
-    private Dictionary<string, int> typeOfSensors;
+    protected Dictionary<string, int> typeOfSensors;
 
-    private int numActiveSensors;
+    protected int numActiveSensors;
 
-    private Dictionary<string, int> activeSensors;
+    protected Dictionary<string, int> activeSensors;
+
+    public Sensor[] attachedSensors;
 
     public Agent(string name, int rank, Dictionary<string, int> typeOfSensors)
     {
@@ -20,9 +22,10 @@ public class Agent
         this.numSensors = this.calcNumSensors();
         this.numActiveSensors = 0;
         this.activeSensors = new Dictionary<string, int>();
+        this.attachedSensors = new Sensor[this.numSensors];
     }
 
-    public bool sensorActivated(string sensorType)
+    public virtual bool sensorActivated(string sensorType)
     {
         if (!typeOfSensors.ContainsKey(sensorType))
         {
@@ -71,6 +74,11 @@ public class Agent
     {
         this.activeSensors = new Dictionary<string, int>();
         this.numActiveSensors = 0;
+    }
+
+    public Dictionary<string, int> getWeaknesses()
+    {
+        return this.typeOfSensors;
     }
 
 }

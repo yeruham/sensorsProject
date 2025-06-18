@@ -3,38 +3,53 @@ using System.Collections.Generic;
 
 public class MenuManager
 {
-    private gameManager gameManager;
-    private Investigation investigation;
+    protected GameBuilder gameBuilder;
+    protected List<Agent> agents;
+    private InvestigationManager investigationManager;
 
-    public MenuManager(int numAgents, int numSensors)
+    public MenuManager( int numSensors, int numAgents, int numCommanderAgents)
     {
-        this.gameManager = new gameManager(numAgents, numSensors);
-        this.investigation = this.gameManager.createInvestigation(0);
+        this.gameBuilder = new GameBuilder(numSensors, numAgents, numCommanderAgents);
+        this.agents = this.gameBuilder.getAgents();
     }
 
-    public void startGame()
+    protected void startInvestigation(int num)
     {
-        this.startMenu();
+        string agentName = this.createNewInvestigation(num);
+        this.startMenu(agentName);
 
         Sensor sensor;
         bool agentExposed = false;
 
         do
         {
-            sensor = this.selectSensor(Massage.newSensor);
-            agentExposed = this.startInvestigation(sensor);
+            bool investigationFull = this.investigationManager.InvestigationFull();
+            if (investigationFull)
+            {
+                sensor = this.selectSensor(Message.noSensorInList);
+                this.investigationManager.removeSensor(sensor);
+            }
+            else
+            {
+                sensor = this.selectSensor(Message.newSensor);
+                agentExposed = this.investigationManager.startInvestigation(sensor);
+            }
 
         } while (!agentExposed);
-
-        this.showExposed();
     }
 
-    private void startMenu()
+    private string createNewInvestigation(int num)
     {
-        Massage.showMenu(this.investigation.agent.name);
-        Massage.showSensors(this.gameManager.getSensors());
+        Agent agent = this.agents[num];
+        this.investigationManager = new InvestigationManager(agent);
+        return agent.name;
     }
 
+    private void startMenu(string name)
+    {
+        Message.showMenu(name);
+        Message.showSensors(this.gameBuilder.getSensors());
+    }
 
     private Sensor selectSensor(string massage)
     {
@@ -42,58 +57,15 @@ public class MenuManager
 
         do
         {
-            Massage.WriteSensor(massage);
+            Message.printAnyMessage(massage);
             string nameSensor = Console.ReadLine();
 
-            sensor = this.gameManager.findSensorByName(nameSensor);
-            massage = Massage.noSensor;
+            sensor = this.gameBuilder.findSensorByName(nameSensor);
+            massage = Message.noSensor;
         } 
         while (sensor == null);
         
         return sensor;
     }
 
-    private bool startInvestigation(Sensor sensor)
-    {
-        bool agentExposed = false;
-       
-        this.investigation.addSensor(sensor);
-        agentExposed = this.resultInvestigation();
-
-        if (!agentExposed && this.investigation.fullList())
-        {
-            bool sensorDeleted = false;
-            do
-            {
-                Sensor sensorToRemove = this.selectSensor(Massage.noSensorInList);
-                sensorDeleted = this.investigation.removeSensor(sensorToRemove);
-            } while (!sensorDeleted);
-        }
-
-        return agentExposed;
-    }
-    
-    private bool resultInvestigation()
-    {
-        bool agentExposed = false;
-        Dictionary<string, int> compatibleSensors = null;
-        compatibleSensors = this.investigation.activateSensors();
-
-        if (compatibleSensors != null)
-        {
-            if (compatibleSensors["numSensors"] == compatibleSensors["activeSensors"])
-            {
-                agentExposed = true;
-            }
-        }
-
-        Massage.showResult(compatibleSensors);
-        return agentExposed;
-    }
-
-    private void showExposed()
-    {
-        Massage.showExposed(this.investigation.agent);
-        Massage.showSensors(this.investigation.getAttachedSensors());
-    }
 }

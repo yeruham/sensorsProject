@@ -44,17 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="agents\Agent.cs" />
-    <Compile Include="agents\agentsList.cs" />
+    <Compile Include="agents\commanderAgent.cs" />
     <Compile Include="agents\createAgents.cs" />
-    <Compile Include="game\gameManager.cs" />
-    <Compile Include="game\massags.cs" />
+    <Compile Include="game\mainManager.cs" />
+    <Compile Include="investigations\investigationManager.cs" />
+    <Compile Include="investigations\investigationMessages.cs" />
+    <Compile Include="sensors\pulseSensor.cs" />
+    <Compile Include="sensors\signalSensor.cs" />
+    <Compile Include="sensors\ThermalSensor.cs" />
+    <Compile Include="game\gameBuilder.cs" />
+    <Compile Include="game\messags.cs" />
     <Compile Include="game\menuManager.cs" />
     <Compile Include="investigations\investigation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sensors\createSensors.cs" />
     <Compile Include="sensors\Sensor.cs" />
-    <Compile Include="sensors\sensorsList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
