@@ -11,7 +11,7 @@ public static class createAgents
         string name = _createName();
         int rank = _createRank();
         Dictionary<string, int> weaknesses = _createWeaknesses();
-
+        printWeaknesses(weaknesses);
         Agent agent = new Agent(name, rank, weaknesses);
         return agent;
     }
@@ -54,4 +54,11 @@ public static class createAgents
         return name;
     }
 
+    private static void printWeaknesses(Dictionary<string, int> weaknesses)
+    {
+        foreach (KeyValuePair<string, int> weakness in weaknesses)
+        {
+            Console.WriteLine($"{weakness.Key} - {weakness.Value}");
+        }
+    }
 }

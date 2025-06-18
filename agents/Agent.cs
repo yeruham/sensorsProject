@@ -25,7 +25,7 @@ public class Agent
         this.attachedSensors = new Sensor[this.numSensors];
     }
 
-    public bool sensorActivated(string sensorType)
+    public virtual bool sensorActivated(string sensorType)
     {
         if (!typeOfSensors.ContainsKey(sensorType))
         {

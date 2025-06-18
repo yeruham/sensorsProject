@@ -11,17 +11,18 @@ public class PulseSensor: Sensor
 
     public override bool activate(Agent agent)
     {
-        if (numSessions < 3)
+        if (this.numSessions < 3)
         {
-            numSessions++;
+            this.numSessions++;
             return base.activate(agent);
         }
-        else
+        else if(this.numSessions == 3)
         {
             this.showBreak();
-            return false;
+            this.numSessions++;
         }
 
+        return false;
     }
 
     public void showBreak()
