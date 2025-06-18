@@ -24,7 +24,14 @@ public class GameBuilder
             Agent agent = createAgents.createAgent();
             this.agentsList.Add(agent);
         }
+
+        for (int i = 0; i < num; i++)
+        {
+            Agent agent = createAgents.createCommanderAgent();
+            this.agentsList.Add(agent);
+        }
     }
+
 
     private void addSensors(int num)
     {

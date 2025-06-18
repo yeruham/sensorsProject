@@ -21,6 +21,7 @@ public static class createAgents
         string name = _createName();
         int rank = _createRank(5, 7);
         Dictionary<string, int> weaknesses = _createWeaknesses(rank);
+        Console.WriteLine(rank);
         printWeaknesses(weaknesses);
         CommanderAgent commander = new CommanderAgent(name, rank, weaknesses);
         return commander;
