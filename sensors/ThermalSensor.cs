@@ -37,7 +37,7 @@ public class ThermalSensor: Sensor
             }
 
             int randWeakness = random.Next(0, listWeaknesses.Count);
-            Console.WriteLine($"\nOne weakness of {agent.name} is {listWeaknesses[randWeakness]}.");
+            Console.WriteLine($"\none weakness of {agent.name} is {listWeaknesses[randWeakness]}.");
             
             this.expose = false;
         }

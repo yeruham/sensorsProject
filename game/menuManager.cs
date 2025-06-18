@@ -4,36 +4,49 @@ using System.Collections.Generic;
 public class MenuManager
 {
     private GameBuilder gameBuilder;
-    private Investigation investigation;
+    private List<Agent> agents;
+    private InvestigationManager investigationManager;
 
     public MenuManager(int numAgents, int numSensors)
     {
         this.gameBuilder = new GameBuilder(numAgents, numSensors);
-        this.investigation = this.gameBuilder.createInvestigation(0);
+        this.agents = this.gameBuilder.getAgents();
     }
 
     public void startGame()
     {
-        this.startMenu();
+        int numAgent = 0;
+        Agent agent = this.agents[numAgent];
+        this.investigationManager = new InvestigationManager(agent);
+        this.startMenu(agent.name);
 
         Sensor sensor;
         bool agentExposed = false;
 
         do
         {
+            bool investigationFull = this.investigationManager.InvestigationFull();
+            if (investigationFull)
+            {
+                Sensor sensorToRemove = this.selectSensor(Message.noSensorInList);
+                this.investigationManager.removeSensor(sensorToRemove);
+            }
+            else
+            {
+                sensor = this.selectSensor(Message.newSensor);
+                agentExposed = this.investigationManager.startInvestigation(sensor);
 
-            sensor = this.selectSensor(Massage.newSensor);
-            agentExposed = this.startInvestigation(sensor);
+            }
 
         } while (!agentExposed);
 
-        this.showExposed();
+
     }
 
-    private void startMenu()
+    private void startMenu(string name)
     {
-        Massage.showMenu(this.investigation.agent.name);
-        Massage.showSensors(this.gameBuilder.getSensors());
+        Message.showMenu(name);
+        Message.showSensors(this.gameBuilder.getSensors());
     }
 
 
@@ -43,59 +56,20 @@ public class MenuManager
 
         do
         {
-            Massage.WriteSensor(massage);
+            Message.WriteSensor(massage);
             string nameSensor = Console.ReadLine();
 
             sensor = this.gameBuilder.findSensorByName(nameSensor);
-            massage = Massage.noSensor;
+            massage = Message.noSensor;
         } 
         while (sensor == null);
         
         return sensor;
     }
 
-    private bool startInvestigation(Sensor sensor)
+
+    private void showExposed(string name)
     {
-        bool agentExposed = false;
-       
-        this.investigation.addSensor(sensor);
-        agentExposed = this.resultInvestigation();
 
-        if (!agentExposed && this.investigation.fullList())
-        {
-            bool sensorDeleted = false;
-            do
-            {
-                Sensor sensorToRemove = this.selectSensor(Massage.noSensorInList);
-                sensorDeleted = this.investigation.removeSensor(sensorToRemove);
-            } while (!sensorDeleted);
-        }
-
-        return agentExposed;
-    }
-    
-    private bool resultInvestigation()
-    {
-        bool agentExposed = false;
-        Dictionary<string, int> compatibleSensors = null;
-        compatibleSensors = this.investigation.activateSensors();
-
-        if (compatibleSensors != null)
-        {
-            if (compatibleSensors["numSensors"] == compatibleSensors["activeSensors"])
-            {
-                agentExposed = true;
-            }
-        }
-
-        Massage.showResult(compatibleSensors);
-        Massage.showSensors(this.investigation.getAttachedSensors());
-        return agentExposed;
-    }
-
-    private void showExposed()
-    {
-        Massage.showExposed(this.investigation.agent);
-        Massage.showSensors(this.investigation.getAttachedSensors());
     }
 }

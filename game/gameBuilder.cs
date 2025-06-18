@@ -23,13 +23,16 @@ public class GameBuilder
             this.agentsList.Add(agent);
         }
 
+    }
+
+    public void addCommandAgents(int num)
+    {
         for (int i = 0; i < num; i++)
         {
             Agent agent = createAgents.createCommanderAgent();
             this.agentsList.Add(agent);
         }
     }
-
 
     private void addSensors(int num)
     {

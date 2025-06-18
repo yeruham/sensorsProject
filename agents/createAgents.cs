@@ -11,7 +11,7 @@ public static class createAgents
         string name = _createName();
         int rank = _createRank(2, 4);
         Dictionary<string, int> weaknesses = _createWeaknesses(rank);
-        printWeaknesses(weaknesses);
+        //printWeaknesses(weaknesses);
         Agent agent = new Agent(name, rank, weaknesses);
         return agent;
     }
@@ -21,8 +21,7 @@ public static class createAgents
         string name = _createName();
         int rank = _createRank(5, 7);
         Dictionary<string, int> weaknesses = _createWeaknesses(rank);
-        Console.WriteLine(rank);
-        printWeaknesses(weaknesses);
+        //printWeaknesses(weaknesses);
         CommanderAgent commander = new CommanderAgent(name, rank, weaknesses);
         return commander;
     }
@@ -63,11 +62,11 @@ public static class createAgents
         return name;
     }
 
-    private static void printWeaknesses(Dictionary<string, int> weaknesses)
-    {
-        foreach (KeyValuePair<string, int> weakness in weaknesses)
-        {
-            Console.WriteLine($"{weakness.Key} - {weakness.Value}");
-        }
-    }
+    //private static void printWeaknesses(Dictionary<string, int> weaknesses)
+    //{
+    //    foreach (KeyValuePair<string, int> weakness in weaknesses)
+    //    {
+    //        Console.WriteLine($"{weakness.Key} - {weakness.Value}");
+    //    }
+    //}
 }
