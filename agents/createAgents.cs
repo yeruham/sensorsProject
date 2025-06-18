@@ -11,7 +11,6 @@ public static class createAgents
         string name = _createName();
         int rank = _createRank(2, 3);
         Dictionary<string, int> weaknesses = _createWeaknesses(rank);
-        //printWeaknesses(weaknesses);
         Agent agent = new Agent(name, rank, weaknesses);
         return agent;
     }
@@ -21,7 +20,6 @@ public static class createAgents
         string name = _createName();
         int rank = _createRank(3, 5);
         Dictionary<string, int> weaknesses = _createWeaknesses(rank);
-        //printWeaknesses(weaknesses);
         CommanderAgent commander = new CommanderAgent(name, rank, weaknesses);
         return commander;
     }
