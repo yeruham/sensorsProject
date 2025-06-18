@@ -9,8 +9,8 @@ public static class createAgents
     public static Agent createAgent()
     {
         string name = _createName();
-        int rank = _createRank();
-        Dictionary<string, int> weaknesses = _createWeaknesses();
+        int rank = _createRank(2, 4);
+        Dictionary<string, int> weaknesses = _createWeaknesses(rank);
         printWeaknesses(weaknesses);
         Agent agent = new Agent(name, rank, weaknesses);
         return agent;
@@ -19,18 +19,16 @@ public static class createAgents
     public static CommanderAgent createCommanderAgent()
     {
         string name = _createName();
-        int rank = _createRank();
-        Dictionary<string, int> weaknesses = _createWeaknesses();
+        int rank = _createRank(5, 7);
+        Dictionary<string, int> weaknesses = _createWeaknesses(rank);
         printWeaknesses(weaknesses);
-        CommanderAgent command = new CommanderAgent(name, rank, weaknesses);
-        return command;
+        CommanderAgent commander = new CommanderAgent(name, rank, weaknesses);
+        return commander;
     }
 
-    private static Dictionary<string, int> _createWeaknesses()
+    private static Dictionary<string, int> _createWeaknesses(int numWeaknesses)
     {
         Dictionary<string, int> weaknesses = new Dictionary<string, int>();
-
-        int numWeaknesses = _random.Next(3, 7);
 
         for(int i = 0; i < numWeaknesses; i++){
 
@@ -51,9 +49,9 @@ public static class createAgents
         return weaknesses;
     }
 
-    private static int _createRank()
+    private static int _createRank(int startRange, int stopRange)
     {
-        int rank = _random.Next(2, 5);
+        int rank = _random.Next(startRange, stopRange);
         return rank;
     }
 

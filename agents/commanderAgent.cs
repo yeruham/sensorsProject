@@ -5,7 +5,7 @@ using System.Reflection;
 public class CommanderAgent: Agent
 {
     private int linkNum;
-    public CommanderAgent(string name, int rank, Dictionary<string, int> typeOfSensors) : base(name, rank, typeOfSensors)
+    public CommanderAgent(string name, int rank , Dictionary<string, int> typeOfSensors) : base(name, rank, typeOfSensors)
     {
         this.linkNum = 0;
     }
