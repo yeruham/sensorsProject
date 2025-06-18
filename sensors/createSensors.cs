@@ -6,8 +6,6 @@ public static class createSensors
     private static Random _random = new Random();
     private static Func<string, Sensor>[] _typeSensors = { createAudioSensor, createPulseSensor, createThermalSensor, createSignalSensor };
 
-
-    //private static string[] _names = { "A23", "V5", "F23", "P12", "G3", "N7", "C45", "W34", "Q12" };
     public static Sensor createSensor()
     {
         string name = createName();

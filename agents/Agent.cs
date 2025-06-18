@@ -6,11 +6,11 @@ public class Agent
     public int rank { get; }
     public int numSensors { get; }
 
-    private Dictionary<string, int> typeOfSensors;
+    protected Dictionary<string, int> typeOfSensors;
 
-    private int numActiveSensors;
+    protected int numActiveSensors;
 
-    private Dictionary<string, int> activeSensors;
+    protected Dictionary<string, int> activeSensors;
 
     public Agent(string name, int rank, Dictionary<string, int> typeOfSensors)
     {
