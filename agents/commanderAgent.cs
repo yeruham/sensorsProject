@@ -5,17 +5,16 @@ using System.Reflection;
 public class CommanderAgent: Agent
 {
     private int linkNum;
-    //private Random random;
     public CommanderAgent(string name, int rank, Dictionary<string, int> typeOfSensors) : base(name, rank, typeOfSensors)
     {
         this.linkNum = 0;
-        //this.random = new Random();
     }
 
     public override bool sensorActivated(string sensorType)
     {
+        bool suucess = base.sensorActivated(sensorType);
         this.counterAttack();
-        return base.sensorActivated(sensorType);
+        return suucess;
     }
     public void counterAttack()
     {
