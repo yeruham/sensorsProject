@@ -7,7 +7,7 @@ public class GameBuilder
     private List<Agent> agentsList;
     private List<Sensor> sensorList;
 
-    public GameBuilder(int numAgents, int numSensors)
+    public GameBuilder(int numSensors, int numAgents)
     {
         agentsList = new List<Agent>();
         sensorList = new List<Sensor>();

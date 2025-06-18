@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Investigation
 {
@@ -27,12 +28,13 @@ public class Investigation
     public bool addSensor(Sensor sensor)
     {
         bool addSuccess = false;
+        if (this.agent.attachedSensors.Contains(sensor))
+        {
+            return addSuccess;
+        }
+
         for (int i = 0; i < this.agent.attachedSensors.Length; i++)
         {
-            if (this.agent.attachedSensors[i] == sensor)
-            {
-                break;
-            }
             if (this.agent.attachedSensors[i] == null)
             {
                 this.agent.attachedSensors[i] = sensor;

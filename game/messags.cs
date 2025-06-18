@@ -8,6 +8,8 @@ public static class Message
     public static string noSensor = "\nNo agent with that name found, try again\n";
     public static string noSensorInList = $"\nYou have already chosen all sensors," +
                                           $"\nto continue remove an existing sensor, by write his name\n";
+    public static string continueGame = "\nIf you want to continue further investigation press continue. To exit press exit";
+    public static string agentLevelingUp = "\nIf you want to level up press enter, To exit press continue";
 
     public static void showMenu(string agentName)
     {
@@ -26,11 +28,10 @@ public static class Message
     }
 
 
-    public static void WriteSensor(string massage)
+    public static void printAnyMessage(string message)
     {
-        Console.WriteLine(massage);
+        Console.WriteLine(message);
     }
 
-
-
+ 
 }

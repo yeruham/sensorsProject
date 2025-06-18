@@ -7,18 +7,47 @@ public class MenuManager
     private List<Agent> agents;
     private InvestigationManager investigationManager;
 
-    public MenuManager(int numAgents, int numSensors)
+    public MenuManager( int numSensors, int numAgents, int numCommanderAgents)
     {
-        this.gameBuilder = new GameBuilder(numAgents, numSensors);
+        this.gameBuilder = new GameBuilder(numSensors, numAgents);
         this.agents = this.gameBuilder.getAgents();
     }
 
     public void startGame()
     {
         int numAgent = 0;
-        Agent agent = this.agents[numAgent];
+        bool continueGame = true;
+        string message = Message.continueGame;
+        int numLevel = 1;
+
+        do {
+
+            if (numAgent == this.agents.Count && numLevel == 1)
+            {
+                this.agentLevelingUp();
+                message = Message.agentLevelingUp;
+            }
+
+            this.startInvestigation(numAgent);
+            continueGame = this.continueGame(message);
+
+            numAgent++;
+
+        } while (continueGame && numAgent <= this.agents.Count);
+      
+    }
+
+    private string createNewInvestigation(int num)
+    {
+        Agent agent = this.agents[num];
         this.investigationManager = new InvestigationManager(agent);
-        this.startMenu(agent.name);
+        return agent.name;
+    }
+
+    private void startInvestigation(int num)
+    {
+        string agentName = this.createNewInvestigation(num);
+        this.startMenu(agentName);
 
         Sensor sensor;
         bool agentExposed = false;
@@ -42,13 +71,31 @@ public class MenuManager
 
 
     }
-
     private void startMenu(string name)
     {
         Message.showMenu(name);
         Message.showSensors(this.gameBuilder.getSensors());
     }
 
+    private bool continueGame(string message)
+    {
+        Message.printAnyMessage(message);
+        string continueGame = Console.ReadLine();
+
+        if (continueGame == "exit")
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    private void agentLevelingUp()
+    {
+        this.gameBuilder.addCommandAgents(2);
+    }
 
     private Sensor selectSensor(string massage)
     {
@@ -56,7 +103,7 @@ public class MenuManager
 
         do
         {
-            Message.WriteSensor(massage);
+            Message.printAnyMessage(massage);
             string nameSensor = Console.ReadLine();
 
             sensor = this.gameBuilder.findSensorByName(nameSensor);
@@ -67,9 +114,4 @@ public class MenuManager
         return sensor;
     }
 
-
-    private void showExposed(string name)
-    {
-
-    }
 }

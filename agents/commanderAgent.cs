@@ -25,7 +25,7 @@ public class CommanderAgent: Agent
                 if (this.attachedSensors[i] != null)
                 {
                     Console.WriteLine($"\nThe commander agent launch a counter attack and removed" +
-                                      $" {this.attachedSensors[i]} from the  attached sensors");
+                                      $" {this.attachedSensors[i].name} from the  attached sensors");
                     this.attachedSensors[i] = null;
                     this.linkNum = 0;
                     break;

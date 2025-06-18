@@ -19,7 +19,7 @@ public static class createAgents
     public static CommanderAgent createCommanderAgent()
     {
         string name = _createName();
-        int rank = _createRank(5, 7);
+        int rank = _createRank(4, 7);
         Dictionary<string, int> weaknesses = _createWeaknesses(rank);
         //printWeaknesses(weaknesses);
         CommanderAgent commander = new CommanderAgent(name, rank, weaknesses);
