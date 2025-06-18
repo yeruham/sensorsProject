@@ -18,7 +18,7 @@ public class PulseSensor: Sensor
         }
         else
         {
-            Console.WriteLine($"\nthe sensor: {this.name}, type: {this.type}, broken");
+            Console.WriteLine($"\n After three uses - the sensor: {this.name}, type: {this.type}, broken.");
             return false;
         }
 
