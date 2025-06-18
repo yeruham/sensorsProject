@@ -59,12 +59,4 @@ public static class createAgents
         string name = _names[num];
         return name;
     }
-
-    //private static void printWeaknesses(Dictionary<string, int> weaknesses)
-    //{
-    //    foreach (KeyValuePair<string, int> weakness in weaknesses)
-    //    {
-    //        Console.WriteLine($"{weakness.Key} - {weakness.Value}");
-    //    }
-    //}
 }
