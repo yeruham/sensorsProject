@@ -13,29 +13,24 @@ public class CommanderAgent: Agent
     public override bool sensorActivated(string sensorType)
     {
         bool suucess = base.sensorActivated(sensorType);
-        this.counterAttack();
+        this.counterAttack(sensorType);
         return suucess;
     }
-    public void counterAttack()
+
+    public void counterAttack(string sensorType)
     {
-        Console.WriteLine("link num   "  +this.linkNum);
-        if (this.linkNum >= 3)
+        if (this.linkNum >= (3 * this.attachedSensors.Length))
         {
-            for(int i = this.numSensors - 1; i > -1; i--)
-            {
-                if (this.attachedSensors[i] != null)
-                {
-                    Console.WriteLine($"\nThe commander agent launch a counter attack and removed" +
-                                      $" {this.attachedSensors[i].name} from the  attached sensors");
-                    this.attachedSensors[i] = null;
-                    this.linkNum = 0;
-                    break;
-                }
-            }
+            Console.WriteLine($"\nThe commander agent launch a counter attack and removed" +
+                              $" {this.attachedSensors[0].name} from the  attached sensors");
+            this.attachedSensors[0] = null;
+            this.linkNum = 0;
         }
         else
         {
             this.linkNum++;
         }
     }
+
+
 }

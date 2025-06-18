@@ -15,7 +15,7 @@ public class mainManager: MenuManager
         do
         {
 
-            continueGame = this.startLevel();
+            continueGame = this.startLevel() && this.continueGame(Message.commanderAgents);
             currentLevel = this.levelUp(currentLevel);
 
         } while (continueGame && currentLevel <= 2);
@@ -40,7 +40,6 @@ public class mainManager: MenuManager
     private int levelUp(int CurrentLevel)
     {
         this.agents = this.gameBuilder.GetCommanderAgents();
-        Message.printAnyMessage(Message.agentLevelingUp);
         return CurrentLevel + 1;
     }
 
