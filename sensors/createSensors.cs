@@ -4,7 +4,7 @@ using System.Xml.Linq;
 public static class createSensors
 {
     private static Random _random = new Random();
-    private static Func<string, Sensor>[] _typeSensors = { createAudioSensor, createPulseSensor, createThermalSensor };
+    private static Func<string, Sensor>[] _typeSensors = { createAudioSensor, createPulseSensor, createThermalSensor, createSignalSensor };
 
 
     //private static string[] _names = { "A23", "V5", "F23", "P12", "G3", "N7", "C45", "W34", "Q12" };
@@ -30,6 +30,12 @@ public static class createSensors
     private static Sensor createPulseSensor(string name)
     {
         Sensor sensor = new PulseSensor(name);
+        return sensor;
+    }
+
+    private static Sensor createSignalSensor(string name)
+    {
+        Sensor sensor = new SignalSensor(name);
         return sensor;
     }
     private static string createName()

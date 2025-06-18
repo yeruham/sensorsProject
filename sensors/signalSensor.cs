@@ -9,12 +9,16 @@ public class SignalSensor: Sensor
 
     public override bool activate(Agent agent)
     {
-        this.ShowRankAgent(agent);
-        return base.activate(agent);
+        bool success = base.activate(agent);
+        if (success)
+        {
+            this.showRankAgent(agent);
+        }
+        return success;
     }
 
-    public void ShowRankAgent(Agent agent)
+    public void showRankAgent(Agent agent)
     {
-        Console.WriteLine($"The rank of agent {agent.name} is {agent.rank}.");
+        Console.WriteLine($"\nThe rank of agent {agent.name} is {agent.rank}.");
     }
 }

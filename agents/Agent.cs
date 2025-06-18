@@ -73,4 +73,9 @@ public class Agent
         this.numActiveSensors = 0;
     }
 
+    public Dictionary<string, int> getWeaknesses()
+    {
+        return this.typeOfSensors;
+    }
+
 }
