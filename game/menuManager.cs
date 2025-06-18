@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 public class MenuManager
 {
-    private gameManager gameManager;
+    private GameBuilder gameBuilder;
     private Investigation investigation;
 
     public MenuManager(int numAgents, int numSensors)
     {
-        this.gameManager = new gameManager(numAgents, numSensors);
-        this.investigation = this.gameManager.createInvestigation(0);
+        this.gameBuilder = new GameBuilder(numAgents, numSensors);
+        this.investigation = this.gameBuilder.createInvestigation(0);
     }
 
     public void startGame()
@@ -33,7 +33,7 @@ public class MenuManager
     private void startMenu()
     {
         Massage.showMenu(this.investigation.agent.name);
-        Massage.showSensors(this.gameManager.getSensors());
+        Massage.showSensors(this.gameBuilder.getSensors());
     }
 
 
@@ -46,7 +46,7 @@ public class MenuManager
             Massage.WriteSensor(massage);
             string nameSensor = Console.ReadLine();
 
-            sensor = this.gameManager.findSensorByName(nameSensor);
+            sensor = this.gameBuilder.findSensorByName(nameSensor);
             massage = Massage.noSensor;
         } 
         while (sensor == null);

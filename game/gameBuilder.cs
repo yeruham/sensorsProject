@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class gameManager
+public class GameBuilder
 {
 
     private List<Agent> agentsList;
@@ -9,7 +9,7 @@ public class gameManager
     private Investigation investigation;
 
 
-    public gameManager(int numAgents, int numSensors)
+    public GameBuilder(int numAgents, int numSensors)
     {
         agentsList = new List<Agent>();
         sensorList = new List<Sensor>();
