@@ -4,10 +4,9 @@ using System.Linq;
 
 public class Investigation
 {
-
     public Agent agent { get; }
-
     public Sensor[] attachedSensors { get; }
+
     public Investigation(Agent agent)
     {
         this.agent = agent;
@@ -89,6 +88,5 @@ public class Investigation
 
         return compatibleSensors;
     }
-
 
 }
