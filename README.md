@@ -152,40 +152,57 @@ Methods:
 - `void sensorDeleted(string name)`  
 - `void showExposed(Agent agent)`  
 
+---
 
-
- 
 ## 📁 game
 
 ### `gameBuilder.cs`  
 **Class: `GameBulider`**  
-Fields:
-
-Methods:
+Methods:  
+- `void addAgents(int num)`  
+- `addCommandAgents(int num)`  
+- `addSensors(int num)`  
+- `List<Sensor> getSensors()`  
+- `List<Agent> GetCommanderAgents()`  
+- `List<Agent> getAgents()`  
+- `findSensorByName(string nameSensor)`  
+- `void rebootSensors(int num)`  
 
 ---
 
 ### `menuManager.cs`  
 **Class: `MenuManager`**  
-Fields:
+Fields:  
+- `GameBuilder gameBuilder`  
+- `List<Agent> agents`  
 
-Methods:
+Methods:  
+- `void startInvestigation(int num)`  
 
 ---
+
 ### `mainManager.cs`  
 **Class: `MainManager`**  
-Fields:
-
-Methods:
+Methods:  
+- `void startGame()`  
 
 ---
 
 ### `messags.cs`  
 **Static Class: `Messags`**  
-Fields:
+Fields:  
+- `string startGame`  
+- `string newSensor`  
+- `string noSensor`  
+- `string noSensorInList`  
+- `string continueGame`  
+- `string commanderAgents`  
+- `string endGame`  
 
-Methods:
+Methods:  
+- `void showMenu(string agentName)`  
+- `void showSensors(List<Sensor> sensors)`  
+- `void printAnyMessage(string message)`  
 
----
 
 
