@@ -35,7 +35,7 @@ public class InvestigationManager
 
     }
 
-    public void agentExposed()
+    private void agentExposed()
     {
         InvestigationMassage.showExposed(this.investigation.agent);
         InvestigationMassage.showSensors(this.investigation.attachedSensors);
