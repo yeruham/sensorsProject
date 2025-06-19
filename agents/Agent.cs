@@ -8,7 +8,7 @@ public class Agent
 
     protected Dictionary<string, int> typeOfSensors;
 
-    protected int numActiveSensors;
+    //protected int numActiveSensors;
 
     protected Dictionary<string, int> activeSensors;
 
@@ -20,7 +20,6 @@ public class Agent
         this.rank = rank;
         this.typeOfSensors = typeOfSensors;
         this.numSensors = this.calcNumSensors();
-        this.numActiveSensors = 0;
         this.activeSensors = new Dictionary<string, int>();
         this.attachedSensors = new Sensor[this.numSensors];
     }
@@ -37,26 +36,16 @@ public class Agent
         if (!activeSensors.ContainsKey(sensorType))
         {
             activeSensors[sensorType] = 1;
-            this.numActiveSensors += 1;
             return true;
         }
 
         if (activeSensors[sensorType] < numThisType)
         {
             activeSensors[sensorType] += 1;
-            this.numActiveSensors += 1;
             return true;
         }
 
         return false;
-    }
-
-    public Dictionary<string, int> exposureLevel()
-    {
-        Dictionary<string, int> compatibleSensors = new Dictionary<string, int>();
-        compatibleSensors["numSensors"] = this.numSensors;
-        compatibleSensors["activeSensors"] = this.numActiveSensors;
-        return compatibleSensors;
     }
 
     private int calcNumSensors()
@@ -73,7 +62,6 @@ public class Agent
     public void resetActivateSensors()
     {
         this.activeSensors = new Dictionary<string, int>();
-        this.numActiveSensors = 0;
     }
 
     public Dictionary<string, int> getWeaknesses()
