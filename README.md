@@ -48,7 +48,8 @@ Fully expose the agent by attaching all the required sensors.
 **Class: `Sensor`**  
 Fields:
 - `string name`
-- `string type`  
+- `string type`
+- 
 Methods:
 - `virtual bool Activate(Agent agent)`
 ---
@@ -90,6 +91,7 @@ Fields:
 - `int rank`
 - `int numSensors`
 - `Sensor[] attachedSensors`
+- 
 Methods:
 -`virtual bool sensorActivated(string sensorType)`
 -`void resetActivateSensors()`
@@ -118,6 +120,7 @@ Methods:
 Fields:
 - `Agent agent`
 - `Sensor[] attachedSensors`
+- 
 Methods:
 - `bool fullList()`
 - `bool addSensor(Sensor sensor)`
