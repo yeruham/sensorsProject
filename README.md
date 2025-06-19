@@ -116,13 +116,13 @@ Methods:
 ### `investigation.cs`  
 **Class: `Investigation`**  
 Fields:
-- ` Agent agent`
+- `Agent agent`
 - `Sensor[] attachedSensors`
 Methods:
--` bool fullList()`
--`bool addSensor(Sensor sensor)`
--`bool removeSensor(Sensor sensor)`
--`Dictionary<string, int> activateSensors()`
+- `bool fullList()`
+- `bool addSensor(Sensor sensor)`
+- `bool removeSensor(Sensor sensor)`
+- `Dictionary<string, int> activateSensors()`
 ---
 
 ### `investigationManager.cs`
@@ -131,10 +131,22 @@ Methods:
 - `bool startInvestigation(Sensor sensor)`
 - `bool InvestigationFull()`
 - `removeSensor(Sensor sensor)`
+---
+
+### `investigationMessages.cs`
+**Static Class: `InvestigationMessages`**
+ Methods:
+- `void showResult(Dictionary<string, int> compatibleSensors)`
+- `void showSensors(Sensor[] sensors)`
+- `void sensorDeleted(string name)`
+- `void showExposed(Agent agent)`
+---
+
+ 
 ## 📁 game
 
-### `gameManager.cs`  
-**Class: `GameManager`**  
+### `gameBuilder.cs`  
+**Class: `GameBulider`**  
 Fields:
 
 Methods:
@@ -146,5 +158,22 @@ Methods:
 Fields:
 
 Methods:
+
+---
+### `mainManager.cs`  
+**Class: `MainManager`**  
+Fields:
+
+Methods:
+
+---
+
+### `messags.cs`  
+**Static Class: `Messags`**  
+Fields:
+
+Methods:
+
+---
 
 
