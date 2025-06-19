@@ -29,7 +29,7 @@ public class InvestigationManager
         }
 
         InvestigationMassage.showResult(compatibleSensors);
-        InvestigationMassage.showSensors(this.investigation.getAttachedSensors());
+        InvestigationMassage.showSensors(this.investigation.attachedSensors);
 
         return agentExposed;
 
@@ -38,7 +38,7 @@ public class InvestigationManager
     public void agentExposed()
     {
         InvestigationMassage.showExposed(this.investigation.agent);
-        InvestigationMassage.showSensors(this.investigation.getAttachedSensors());
+        InvestigationMassage.showSensors(this.investigation.attachedSensors);
     }
     public bool InvestigationFull()
     {
