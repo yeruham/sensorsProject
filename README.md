@@ -23,17 +23,23 @@ Fully expose the agent by attaching all the required sensors.
 📦 Project Root
 ├── 📁 sensors
 │   ├── sensor.cs
-│   ├── createSensor.cs
-│   └── sensorsList.cs
+│   ├── pulseSensor.cs
+│   ├── ThermalSensor.cs
+│   ├── signalSensor.cs
+│   └── createSensor.cs
 ├── 📁 agents
 │   ├── agent.cs
-│   ├── createAgent.cs
-│   └── agentList.cs
+│   ├── commanderAgent.cs
+│   └── createAgent.cs
 ├── 📁 investigations
 │   └── investigation.cs
+│   ├── invastigationManager.cs
+│   └── invastigationMessagges.cs
 └── 📁 game
-    ├── gameManager.cs
-    └── menuManager.cs
+    ├── gameBuilder.cs
+    ├── menuManager.cs
+    ├── mainManager.cs
+    └── messags.cs
 ```
 
 ## 📁 sensors
@@ -44,27 +50,36 @@ Fields:
 - `string name`
 - `string type`  
 Methods:
-- `void Activate()`
+- `virtual bool Activate(Agent agent)`
+---
 
+### `PulseSensor.cs`
+**Class: `PulseSensor` : `sensor`** 
+Methods:
+- `override bool Activate(Agent agent)`
+- `void showBreak()`
+---
+
+### `ThernalSensor.cs`
+**Class: `ThermalSensor` : `sensor`** 
+Methods:
+- `override bool ActivateAgent agent()`
+- `void exposingWeakness()`
+---
+
+### `signalSensor.cs`
+**Class: `SignalSensor` : `sensor`** 
+Methods:
+- `override bool Activate(Agent agent)`
+- `void showRankAgent(Agent agent)`
 ---
 
 ### `createSensor.cs`  
 **Static Class: `CreateSensor`**  
 Methods:
 - `Sensor CreateSensor()`
-
 ---
 
-### `sensorsList.cs`  
-**Class: `SensorsList`**  
-Fields:
-- `List<Sensor> sensors`  
-Methods:
-- `void AddSensor(Sensor sensor)`
-- `void RemoveSensor(Sensor sensor)`
-- `List<Sensor> GetSensors()`
-
----
 
 ## 📁 agents
 
@@ -73,37 +88,49 @@ Methods:
 Fields:
 - `string name`
 - `int rank`
+- `int numSensors`
+- `Sensor[] attachedSensors`
+Methods:
+-`virtual bool sensorActivated(string sensorType)`
+-`void resetActivateSensors()`
+-`Dictionary<string, int> getWeaknesses()`
+---
 
+### `commanderAgent.cs`  
+**Class: `CommanderAgent`: `Agent`**
+Methods:
+-`overide bool sensorActivated(string sensorType)`
+- `void counterAttack(string sensorType)`
 ---
 
 ### `createAgent.cs`  
 **Static Class: `CreateAgent`**  
 Methods:
 - `Agent CreateAgent()`
-
+-`CommanderAgent createCommanderAgent()`
 ---
 
-### `agentList.cs`  
-**Class: `AgentList`**  
-Fields:
-- `List<Agent> agents`  
-Methods:
-- `void AddAgent(Agent agent)`
-- `void RemoveAgent(Agent agent)`
-- `List<Agent> GetAgents()`
-
----
 
 ## 📁 investigations
 
 ### `investigation.cs`  
 **Class: `Investigation`**  
 Fields:
-
+- ` Agent agent`
+- `Sensor[] attachedSensors`
 Methods:
-
+-` bool fullList()`
+-`bool addSensor(Sensor sensor)`
+-`bool removeSensor(Sensor sensor)`
+-`Dictionary<string, int> activateSensors()`
 ---
 
+### `investigationManager.cs`
+**Class: `InvestigationManager`** 
+Methods:
+- `bool startInvestigation(Sensor sensor)`
+- `bool InvestigationFull()`
+- `removeSensor(Sensor sensor)`
 ## 📁 game
 
 ### `gameManager.cs`  
