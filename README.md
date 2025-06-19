@@ -44,105 +44,114 @@ Fully expose the agent by attaching all the required sensors.
 
 ## 📁 sensors
 
-### `sensor.cs`
+### `sensor.cs`  
 **Class: `Sensor`**  
-Fields:
-- `string name`
-- `string type`
+Fields:  
+- `string name`  
+- `string type`  
 
-Methods:
-- `virtual bool Activate(Agent agent)`
+Methods:  
+- `virtual bool Activate(Agent agent)`  
 
-
-### `PulseSensor.cs`
-**Class: `PulseSensor` : `sensor`** 
-Methods:
-- `override bool Activate(Agent agent)`
-- `void showBreak()`
 ---
 
-### `ThernalSensor.cs`
-**Class: `ThermalSensor` : `sensor`** 
-Methods:
-- `override bool ActivateAgent agent()`
-- `void exposingWeakness()`
+### `PulseSensor.cs`  
+**Class: `PulseSensor` : `sensor`**  
+Methods:  
+- `override bool Activate(Agent agent)`  
+- `void showBreak()`  
+
 ---
 
-### `signalSensor.cs`
-**Class: `SignalSensor` : `sensor`** 
-Methods:
-- `override bool Activate(Agent agent)`
-- `void showRankAgent(Agent agent)`
+### `ThernalSensor.cs`  
+**Class: `ThermalSensor` : `sensor`**  
+Methods:  
+- `override bool Activate(Agent agent)`  
+- `void exposingWeakness()`  
+
+---
+
+### `signalSensor.cs`  
+**Class: `SignalSensor` : `sensor`**  
+Methods:  
+- `override bool Activate(Agent agent)`  
+- `void showRankAgent(Agent agent)`  
+
 ---
 
 ### `createSensor.cs`  
 **Static Class: `CreateSensor`**  
-Methods:
-- `Sensor CreateSensor()`
----
+Methods:  
+- `Sensor CreateSensor()`  
 
+---
 
 ## 📁 agents
 
 ### `agent.cs`  
 **Class: `Agent`**  
-Fields:
-- `string name`
-- `int rank`
-- `int numSensors`
-- `Sensor[] attachedSensors`
-  
-Methods:
--`virtual bool sensorActivated(string sensorType)`
--`void resetActivateSensors()`
--`Dictionary<string, int> getWeaknesses()`
+Fields:  
+- `string name`  
+- `int rank`  
+- `int numSensors`  
+- `Sensor[] attachedSensors`  
 
+Methods:  
+- `virtual bool sensorActivated(string sensorType)`  
+- `void resetActivateSensors()`  
+- `Dictionary<string, int> getWeaknesses()`  
+
+---
 
 ### `commanderAgent.cs`  
-**Class: `CommanderAgent`: `Agent`**
-Methods:
--`overide bool sensorActivated(string sensorType)`
-- `void counterAttack(string sensorType)`
-  
+**Class: `CommanderAgent` : `Agent`**  
+Methods:  
+- `override bool sensorActivated(string sensorType)`  
+- `void counterAttack(string sensorType)`  
+
+---
 
 ### `createAgent.cs`  
 **Static Class: `CreateAgent`**  
-Methods:
-- `Agent CreateAgent()`
--`CommanderAgent createCommanderAgent()`
+Methods:  
+- `Agent CreateAgent()`  
+- `CommanderAgent createCommanderAgent()`  
 
-
+---
 
 ## 📁 investigations
 
 ### `investigation.cs`  
 **Class: `Investigation`**  
-Fields:
-- `Agent agent`
-- `Sensor[] attachedSensors`
+Fields:  
+- `Agent agent`  
+- `Sensor[] attachedSensors`  
 
-Methods:
-- `bool fullList()`
-- `bool addSensor(Sensor sensor)`
-- `bool removeSensor(Sensor sensor)`
-- `Dictionary<string, int> activateSensors()`
+Methods:  
+- `bool fullList()`  
+- `bool addSensor(Sensor sensor)`  
+- `bool removeSensor(Sensor sensor)`  
+- `Dictionary<string, int> activateSensors()`  
 
+---
 
-### `investigationManager.cs`
-**Class: `InvestigationManager`** 
-Methods:
-- `bool startInvestigation(Sensor sensor)`
-- `bool InvestigationFull()`
-- `removeSensor(Sensor sensor)`
+### `investigationManager.cs`  
+**Class: `InvestigationManager`**  
+Methods:  
+- `bool startInvestigation(Sensor sensor)`  
+- `bool InvestigationFull()`  
+- `removeSensor(Sensor sensor)`  
 
+---
 
-### `investigationMessages.cs`
-**Static Class: `InvestigationMessages`**
- Methods:
-- `void showResult(Dictionary<string, int> compatibleSensors)`
-- `void showSensors(Sensor[] sensors)`
-- `void sensorDeleted(string name)`
-- `void showExposed(Agent agent)`
+### `investigationMessages.cs`  
+**Static Class: `InvestigationMessages`**  
+Methods:  
+- `void showResult(Dictionary<string, int> compatibleSensors)`  
+- `void showSensors(Sensor[] sensors)`  
+- `void sensorDeleted(string name)`  
+- `void showExposed(Agent agent)`  
+
 
 
  
