@@ -49,10 +49,10 @@ Fully expose the agent by attaching all the required sensors.
 Fields:
 - `string name`
 - `string type`
-- 
+
 Methods:
 - `virtual bool Activate(Agent agent)`
----
+
 
 ### `PulseSensor.cs`
 **Class: `PulseSensor` : `sensor`** 
@@ -91,26 +91,26 @@ Fields:
 - `int rank`
 - `int numSensors`
 - `Sensor[] attachedSensors`
-- 
+  
 Methods:
 -`virtual bool sensorActivated(string sensorType)`
 -`void resetActivateSensors()`
 -`Dictionary<string, int> getWeaknesses()`
----
+
 
 ### `commanderAgent.cs`  
 **Class: `CommanderAgent`: `Agent`**
 Methods:
 -`overide bool sensorActivated(string sensorType)`
 - `void counterAttack(string sensorType)`
----
+  
 
 ### `createAgent.cs`  
 **Static Class: `CreateAgent`**  
 Methods:
 - `Agent CreateAgent()`
 -`CommanderAgent createCommanderAgent()`
----
+
 
 
 ## 📁 investigations
@@ -120,13 +120,13 @@ Methods:
 Fields:
 - `Agent agent`
 - `Sensor[] attachedSensors`
-- 
+
 Methods:
 - `bool fullList()`
 - `bool addSensor(Sensor sensor)`
 - `bool removeSensor(Sensor sensor)`
 - `Dictionary<string, int> activateSensors()`
----
+
 
 ### `investigationManager.cs`
 **Class: `InvestigationManager`** 
@@ -134,7 +134,7 @@ Methods:
 - `bool startInvestigation(Sensor sensor)`
 - `bool InvestigationFull()`
 - `removeSensor(Sensor sensor)`
----
+
 
 ### `investigationMessages.cs`
 **Static Class: `InvestigationMessages`**
@@ -143,7 +143,7 @@ Methods:
 - `void showSensors(Sensor[] sensors)`
 - `void sensorDeleted(string name)`
 - `void showExposed(Agent agent)`
----
+
 
  
 ## 📁 game
