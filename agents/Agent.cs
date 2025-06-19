@@ -8,8 +8,6 @@ public class Agent
 
     protected Dictionary<string, int> typeOfSensors;
 
-    //protected int numActiveSensors;
-
     protected Dictionary<string, int> activeSensors;
 
     public Sensor[] attachedSensors;
